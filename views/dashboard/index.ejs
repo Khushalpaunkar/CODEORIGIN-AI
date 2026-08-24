@@ -1,0 +1,2007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CodeOrigin AI | Repository Intelligence</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+</head>
+
+<body>
+
+<%- include('../layouts/navbar') %>
+
+
+<main id="dashboard">
+
+
+<!-- =====================================================
+     HERO SECTION
+===================================================== -->
+
+<section class="hero-section">
+
+    <div class="container-fluid px-lg-5">
+
+        <div class="row align-items-center g-5">
+
+            <!-- LEFT -->
+            <div class="col-lg-6">
+
+                <div class="eyebrow">
+                    <span></span>
+                    MULTI-MODAL MACHINE LEARNING FRAMEWORK
+                </div>
+
+                <h1 class="hero-title">
+                    Understand
+                    <span>Where Code</span>
+                    Comes From.
+                </h1>
+
+                <p class="hero-description">
+                    Repository-level intelligence for detecting
+                    human and AI-generated source code through
+                    code structure, repository behaviour,
+                    AST patterns and machine learning.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a href="/analyze" class="btn-primary-custom">
+                        Analyze Repository
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                    <a href="#framework" class="btn-secondary-custom">
+                        Explore Framework
+                    </a>
+
+                </div>
+
+                <div class="technical-line">
+
+                    <span>
+                        <i class="bi bi-code-slash"></i>
+                        Source Code
+                    </span>
+
+                    <span>+</span>
+
+                    <span>
+                        <i class="bi bi-diagram-3"></i>
+                        AST
+                    </span>
+
+                    <span>+</span>
+
+                    <span>
+                        <i class="bi bi-git"></i>
+                        Git History
+                    </span>
+
+                    <span>+</span>
+
+                    <span>
+                        <i class="bi bi-cpu"></i>
+                        ML
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT -->
+            <div class="col-lg-6">
+
+                <div class="hero-visual">
+
+                    <div class="visual-glow"></div>
+
+                    <div class="repository-node">
+
+                        <div class="node-icon">
+                            <i class="bi bi-github"></i>
+                        </div>
+
+                        <div>
+                            <small>INPUT</small>
+                            <strong>Repository</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="signal-row">
+
+                        <div class="signal-node">
+                            <i class="bi bi-code-slash"></i>
+                            <span>CODE</span>
+                        </div>
+
+                        <div class="signal-node">
+                            <i class="bi bi-diagram-3"></i>
+                            <span>AST</span>
+                        </div>
+
+                        <div class="signal-node">
+                            <i class="bi bi-git"></i>
+                            <span>GIT</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-engine">
+
+                        <div class="engine-icon">
+                            <i class="bi bi-layers"></i>
+                        </div>
+
+                        <div>
+                            <small>PROCESSING</small>
+                            <strong>Feature Engine</strong>
+                        </div>
+
+                        <div class="engine-bars">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="ml-engine">
+
+                        <div class="ml-icon">
+                            <i class="bi bi-cpu"></i>
+                        </div>
+
+                        <div>
+                            <small>MODEL</small>
+                            <strong>ML Classification</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="prediction-result">
+
+                        <div class="prediction-label">
+                            PREDICTION
+                        </div>
+
+                        <div class="prediction-score">
+                            <strong>72%</strong>
+                            <span>AI Generated</span>
+                        </div>
+
+                        <div class="confidence">
+                            Confidence
+                            <strong>84%</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ANALYSIS SNAPSHOT
+===================================================== -->
+
+<section class="metrics-section">
+
+    <div class="container-fluid px-lg-5">
+
+        <div class="section-intro">
+
+            <div>
+                <span class="section-label">
+                    SYSTEM OVERVIEW
+                </span>
+
+                <h2>
+                    Repository Intelligence at a Glance
+                </h2>
+            </div>
+
+            <p>
+                A unified view of repository-level detection
+                capabilities and model performance.
+            </p>
+
+        </div>
+
+
+        <div class="row g-3">
+
+            <div class="col-md-6 col-xl-3">
+
+                <div class="metric-card">
+
+                    <div class="metric-icon purple">
+                        <i class="bi bi-git"></i>
+                    </div>
+
+                    <div>
+                        <span>Repositories Analyzed</span>
+                        <h3>128+</h3>
+                    </div>
+
+                    <small>
+                        Repository inputs
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-xl-3">
+
+                <div class="metric-card">
+
+                    <div class="metric-icon cyan">
+                        <i class="bi bi-bullseye"></i>
+                    </div>
+
+                    <div>
+                        <span>Detection Accuracy</span>
+                        <h3>91.4%</h3>
+                    </div>
+
+                    <small>
+                        Sample model result
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-xl-3">
+
+                <div class="metric-card">
+
+                    <div class="metric-icon green">
+                        <i class="bi bi-sliders"></i>
+                    </div>
+
+                    <div>
+                        <span>Analysis Features</span>
+                        <h3>15+</h3>
+                    </div>
+
+                    <small>
+                        Extracted signals
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-xl-3">
+
+                <div class="metric-card">
+
+                    <div class="metric-icon orange">
+                        <i class="bi bi-boxes"></i>
+                    </div>
+
+                    <div>
+                        <span>Active Modalities</span>
+                        <h3>03</h3>
+                    </div>
+
+                    <small>
+                        Code · AST · Git
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FRAMEWORK
+===================================================== -->
+
+<section class="framework-section" id="framework">
+
+    <div class="container-fluid px-lg-5">
+
+        <div class="section-heading-center">
+
+            <span class="section-label">
+                DETECTION PIPELINE
+            </span>
+
+            <h2>
+                From Repository to Intelligence
+            </h2>
+
+            <p>
+                Multiple repository-level signals are transformed
+                into meaningful features before reaching the
+                machine learning classifier.
+            </p>
+
+        </div>
+
+
+        <div class="framework-flow">
+
+            <div class="framework-step">
+
+                <div class="step-number">01</div>
+
+                <div class="step-icon">
+                    <i class="bi bi-github"></i>
+                </div>
+
+                <h3>Repository Input</h3>
+
+                <p>
+                    GitHub repository or source-code upload.
+                </p>
+
+            </div>
+
+
+            <div class="flow-line"></div>
+
+
+            <div class="framework-step">
+
+                <div class="step-number">02</div>
+
+                <div class="step-icon">
+                    <i class="bi bi-code-slash"></i>
+                </div>
+
+                <h3>Source Analysis</h3>
+
+                <p>
+                    Extract code-level statistical features.
+                </p>
+
+            </div>
+
+
+            <div class="flow-line"></div>
+
+
+            <div class="framework-step">
+
+                <div class="step-number">03</div>
+
+                <div class="step-icon">
+                    <i class="bi bi-diagram-3"></i>
+                </div>
+
+                <h3>AST Analysis</h3>
+
+                <p>
+                    Study structural and syntax patterns.
+                </p>
+
+            </div>
+
+
+            <div class="flow-line"></div>
+
+
+            <div class="framework-step">
+
+                <div class="step-number">04</div>
+
+                <div class="step-icon">
+                    <i class="bi bi-clock-history"></i>
+                </div>
+
+                <h3>Repository Behaviour</h3>
+
+                <p>
+                    Analyze commits and code evolution.
+                </p>
+
+            </div>
+
+
+            <div class="flow-line"></div>
+
+
+            <div class="framework-step active-step">
+
+                <div class="step-number">05</div>
+
+                <div class="step-icon">
+                    <i class="bi bi-cpu"></i>
+                </div>
+
+                <h3>ML Prediction</h3>
+
+                <p>
+                    Fuse features and estimate code origin.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MULTI MODAL INTELLIGENCE
+===================================================== -->
+
+<section class="intelligence-section">
+
+    <div class="container-fluid px-lg-5">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                MULTI-MODAL INTELLIGENCE
+            </span>
+
+            <h2>
+                Multiple Signals.<br>
+                One Prediction.
+            </h2>
+
+            <p>
+                Instead of depending on a single detector,
+                CodeOrigin AI combines multiple forms of
+                repository evidence.
+            </p>
+
+        </div>
+
+
+        <div class="intelligence-grid">
+
+            <article class="intelligence-card code-card">
+
+                <div class="card-top">
+
+                    <div class="large-card-icon">
+                        <i class="bi bi-code-slash"></i>
+                    </div>
+
+                    <span class="card-index">01</span>
+
+                </div>
+
+                <h3>Code Intelligence</h3>
+
+                <p>
+                    Statistical and lexical characteristics
+                    extracted directly from source code.
+                </p>
+
+                <div class="feature-tags">
+                    <span>LOC</span>
+                    <span>Tokens</span>
+                    <span>Comments</span>
+                    <span>Complexity</span>
+                    <span>Naming</span>
+                </div>
+
+            </article>
+
+
+            <article class="intelligence-card ast-card">
+
+                <div class="card-top">
+
+                    <div class="large-card-icon">
+                        <i class="bi bi-diagram-3"></i>
+                    </div>
+
+                    <span class="card-index">02</span>
+
+                </div>
+
+                <h3>Structural Intelligence</h3>
+
+                <p>
+                    Abstract syntax tree and structural
+                    patterns of the repository.
+                </p>
+
+                <div class="feature-tags">
+                    <span>AST Nodes</span>
+                    <span>Control Flow</span>
+                    <span>Nesting</span>
+                    <span>Syntax</span>
+                </div>
+
+            </article>
+
+
+            <article class="intelligence-card git-card">
+
+                <div class="card-top">
+
+                    <div class="large-card-icon">
+                        <i class="bi bi-git"></i>
+                    </div>
+
+                    <span class="card-index">03</span>
+
+                </div>
+
+                <h3>Repository Intelligence</h3>
+
+                <p>
+                    Development behaviour captured through
+                    Git history and repository evolution.
+                </p>
+
+                <div class="feature-tags">
+                    <span>Commits</span>
+                    <span>Contributors</span>
+                    <span>Churn</span>
+                    <span>Evolution</span>
+                </div>
+
+            </article>
+
+
+            <article class="intelligence-card model-card">
+
+                <div class="card-top">
+
+                    <div class="large-card-icon">
+                        <i class="bi bi-cpu"></i>
+                    </div>
+
+                    <span class="card-index">04</span>
+
+                </div>
+
+                <h3>Model Intelligence</h3>
+
+                <p>
+                    Feature fusion and classification generate
+                    probability and confidence scores.
+                </p>
+
+                <div class="feature-tags">
+                    <span>Feature Fusion</span>
+                    <span>Classification</span>
+                    <span>Probability</span>
+                    <span>Confidence</span>
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     HUMAN VS AI
+===================================================== -->
+
+<section class="comparison-section">
+
+    <div class="container-fluid px-lg-5">
+
+        <div class="section-heading-center">
+
+            <span class="section-label">
+                CODE ORIGIN ANALYSIS
+            </span>
+
+            <h2>
+                What Makes Human & AI Code Different?
+            </h2>
+
+            <p>
+                The framework evaluates multiple behavioural and
+                structural indicators to estimate source-code origin.
+            </p>
+
+        </div>
+
+
+        <div class="comparison-wrapper">
+
+            <div class="comparison-side human-side">
+
+                <div class="comparison-title">
+                    <div class="comparison-icon">
+                        <i class="bi bi-person"></i>
+                    </div>
+
+                    <div>
+                        <small>ORIGIN TYPE</small>
+                        <h3>Human Code</h3>
+                    </div>
+                </div>
+
+
+                <ul class="signal-list">
+
+                    <li>
+                        <i class="bi bi-check2"></i>
+                        Incremental development
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check2"></i>
+                        Natural naming variation
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check2"></i>
+                        Developer-specific patterns
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check2"></i>
+                        Irregular code evolution
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check2"></i>
+                        Gradual commit patterns
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="comparison-center">
+
+                <div class="origin-score">
+
+                    <span>AI ORIGIN</span>
+
+                    <strong>72%</strong>
+
+                    <small>
+                        Model Confidence
+                        <b>84%</b>
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="comparison-side ai-side">
+
+                <div class="comparison-title">
+
+                    <div class="comparison-icon">
+                        <i class="bi bi-stars"></i>
+                    </div>
+
+                    <div>
+                        <small>ORIGIN TYPE</small>
+                        <h3>AI-Generated Code</h3>
+                    </div>
+
+                </div>
+
+
+                <ul class="signal-list">
+
+                    <li>
+                        <i class="bi bi-check2"></i>
+                        High structural consistency
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check2"></i>
+                        Repeated patterns
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check2"></i>
+                        Uniform formatting
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check2"></i>
+                        Generated code blocks
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check2"></i>
+                        Characteristic complexity
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="disclaimer">
+            <i class="bi bi-info-circle"></i>
+
+            These indicators represent model signals and are
+            not absolute proof of authorship.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SAMPLE REPOSITORY ANALYSIS
+===================================================== -->
+
+<section class="analysis-section" id="analysis">
+
+    <div class="container-fluid px-lg-5">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                SAMPLE REPOSITORY ANALYSIS
+            </span>
+
+            <h2>
+                Repository Intelligence
+            </h2>
+
+            <p>
+                A sample representation of the insights generated
+                after repository-level analysis.
+            </p>
+
+        </div>
+
+
+        <div class="repository-analysis">
+
+            <div class="repository-header">
+
+                <div class="repository-info">
+
+                    <div class="github-large">
+                        <i class="bi bi-github"></i>
+                    </div>
+
+                    <div>
+
+                        <span>REPOSITORY</span>
+
+                        <h3>Smart-Farmer</h3>
+
+                        <p>
+                            github.com/example/smart-farmer
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="analysis-complete">
+
+                    <span></span>
+                    Analysis Complete
+
+                </div>
+
+            </div>
+
+
+            <div class="row g-4">
+
+                <div class="col-lg-7">
+
+                    <div class="repository-metrics">
+
+                        <div>
+                            <span>Files</span>
+                            <strong>42</strong>
+                        </div>
+
+                        <div>
+                            <span>Lines of Code</span>
+                            <strong>4,820</strong>
+                        </div>
+
+                        <div>
+                            <span>Functions</span>
+                            <strong>318</strong>
+                        </div>
+
+                        <div>
+                            <span>Commits</span>
+                            <strong>86</strong>
+                        </div>
+
+                        <div>
+                            <span>Contributors</span>
+                            <strong>03</strong>
+                        </div>
+
+                        <div>
+                            <span>Code Changes</span>
+                            <strong>10.5K</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-5">
+
+                    <div class="origin-result">
+
+                        <span class="result-label">
+                            PREDICTED ORIGIN
+                        </span>
+
+                        <div class="result-percentage">
+                            72%
+                        </div>
+
+                        <h3>
+                            Likely AI-Generated
+                        </h3>
+
+                        <div class="result-bar">
+
+                            <div style="width:72%"></div>
+
+                        </div>
+
+                        <div class="result-details">
+
+                            <span>
+                                AI
+                                <strong>72%</strong>
+                            </span>
+
+                            <span>
+                                Human
+                                <strong>28%</strong>
+                            </span>
+
+                            <span>
+                                Confidence
+                                <strong>84%</strong>
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     EXPLAINABLE AI
+===================================================== -->
+
+<section class="explain-section">
+
+    <div class="container-fluid px-lg-5">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-5">
+
+                <span class="section-label">
+                    EXPLAINABLE AI
+                </span>
+
+                <h2>
+                    What Drives<br>
+                    The Prediction?
+                </h2>
+
+                <p>
+                    CodeOrigin AI combines repository-level signals
+                    rather than relying on a single characteristic.
+                </p>
+
+
+                <div class="explain-note">
+
+                    <i class="bi bi-lightbulb"></i>
+
+                    <div>
+                        <strong>Explainable Prediction</strong>
+
+                        <span>
+                            Each prediction can be decomposed
+                            into contributing feature groups.
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-7">
+
+                <div class="feature-contribution">
+
+                    <div class="contribution-row">
+
+                        <div class="contribution-header">
+                            <span>Code Structure</span>
+                            <strong>32%</strong>
+                        </div>
+
+                        <div class="contribution-bar">
+                            <div style="width:88%"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contribution-row">
+
+                        <div class="contribution-header">
+                            <span>Git Behaviour</span>
+                            <strong>24%</strong>
+                        </div>
+
+                        <div class="contribution-bar">
+                            <div style="width:72%"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contribution-row">
+
+                        <div class="contribution-header">
+                            <span>Code Complexity</span>
+                            <strong>18%</strong>
+                        </div>
+
+                        <div class="contribution-bar">
+                            <div style="width:61%"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contribution-row">
+
+                        <div class="contribution-header">
+                            <span>Comment Pattern</span>
+                            <strong>14%</strong>
+                        </div>
+
+                        <div class="contribution-bar">
+                            <div style="width:48%"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contribution-row">
+
+                        <div class="contribution-header">
+                            <span>Code Evolution</span>
+                            <strong>12%</strong>
+                        </div>
+
+                        <div class="contribution-bar">
+                            <div style="width:40%"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     REPOSITORY EVOLUTION
+===================================================== -->
+
+<section class="evolution-section">
+
+    <div class="container-fluid px-lg-5">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                REPOSITORY EVOLUTION
+            </span>
+
+            <h2>
+                Observe How the Repository Evolves
+            </h2>
+
+            <p>
+                Development history provides another important
+                signal for repository-level code-origin analysis.
+            </p>
+
+        </div>
+
+
+        <div class="evolution-dashboard">
+
+            <div class="evolution-header">
+
+                <div>
+                    <h3>Code Evolution</h3>
+
+                    <span>
+                        Commit activity and code changes
+                    </span>
+                </div>
+
+                <div class="chart-controls">
+                    <button class="active" type="button" data-series="commits">Commits</button>
+                    <button type="button" data-series="added">Added</button>
+                    <button type="button" data-series="removed">Removed</button>
+                </div>
+
+            </div>
+
+
+            <div class="chart-placeholder">
+
+                <div class="chart-grid-line line-1"></div>
+                <div class="chart-grid-line line-2"></div>
+                <div class="chart-grid-line line-3"></div>
+                <div class="chart-grid-line line-4"></div>
+
+
+                <div class="chart-area">
+
+                    <svg
+                        viewBox="0 0 1000 300"
+                        preserveAspectRatio="none"
+                    >
+
+                        <defs>
+
+                            <linearGradient
+                                id="areaGradient"
+                                x1="0"
+                                y1="0"
+                                x2="0"
+                                y2="1"
+                            >
+
+                                <stop
+                                    offset="0%"
+                                    stop-opacity="0.3"
+                                />
+
+                                <stop
+                                    offset="100%"
+                                    stop-opacity="0"
+                                />
+
+                            </linearGradient>
+
+                        </defs>
+
+
+                        <path
+                            class="chart-fill"
+                            d="
+                            M0 250
+                            L80 220
+                            L160 235
+                            L240 180
+                            L320 200
+                            L400 140
+                            L480 165
+                            L560 100
+                            L640 125
+                            L720 80
+                            L800 110
+                            L880 55
+                            L1000 75
+                            L1000 300
+                            L0 300 Z
+                            "
+                        ></path>
+
+
+                        <path
+                            class="chart-path"
+                            d="
+                            M0 250
+                            L80 220
+                            L160 235
+                            L240 180
+                            L320 200
+                            L400 140
+                            L480 165
+                            L560 100
+                            L640 125
+                            L720 80
+                            L800 110
+                            L880 55
+                            L1000 75
+                            "
+                        ></path>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="chart-x-axis">
+
+                    <span>Commit 01</span>
+                    <span>Commit 10</span>
+                    <span>Commit 20</span>
+                    <span>Commit 30</span>
+                    <span>Commit 40</span>
+                    <span>Commit 50</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="evolution-stats">
+
+                <div>
+                    <span>COMMITS</span>
+                    <strong>86</strong>
+                </div>
+
+                <div>
+                    <span>CONTRIBUTORS</span>
+                    <strong>03</strong>
+                </div>
+
+                <div>
+                    <span>CODE CHANGES</span>
+                    <strong>10.5K</strong>
+                </div>
+
+                <div>
+                    <span>MODIFIED FILES</span>
+                    <strong>42</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     RECENT ANALYSIS
+===================================================== -->
+
+<section class="recent-section">
+
+    <div class="container-fluid px-lg-5">
+
+        <div class="section-heading-inline">
+
+            <div>
+
+                <span class="section-label">
+                    ANALYSIS HISTORY
+                </span>
+
+                <h2>
+                    Recent Repository Analysis
+                </h2>
+
+            </div>
+
+            <a href="#" class="view-all">
+                View All
+                <i class="bi bi-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table class="analysis-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Repository</th>
+                        <th>Language</th>
+                        <th>AI Probability</th>
+                        <th>Human Probability</th>
+                        <th>Confidence</th>
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            <div class="repo-cell">
+                                <i class="bi bi-github"></i>
+                                <strong>Smart-Farmer</strong>
+                            </div>
+                        </td>
+
+                        <td>
+                            <span class="language">JavaScript</span>
+                        </td>
+
+                        <td>
+                            <strong>72%</strong>
+                        </td>
+
+                        <td>28%</td>
+
+                        <td>84%</td>
+
+                        <td>
+                            <span class="status-badge completed">
+                                Completed
+                            </span>
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            <div class="repo-cell">
+                                <i class="bi bi-github"></i>
+                                <strong>E-Commerce</strong>
+                            </div>
+                        </td>
+
+                        <td>
+                            <span class="language">Java</span>
+                        </td>
+
+                        <td>31%</td>
+
+                        <td>
+                            <strong>69%</strong>
+                        </td>
+
+                        <td>89%</td>
+
+                        <td>
+                            <span class="status-badge completed">
+                                Completed
+                            </span>
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            <div class="repo-cell">
+                                <i class="bi bi-github"></i>
+                                <strong>Chat-App</strong>
+                            </div>
+                        </td>
+
+                        <td>
+                            <span class="language">Python</span>
+                        </td>
+
+                        <td>
+                            <strong>68%</strong>
+                        </td>
+
+                        <td>32%</td>
+
+                        <td>77%</td>
+
+                        <td>
+                            <span class="status-badge completed">
+                                Completed
+                            </span>
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            <div class="repo-cell">
+                                <i class="bi bi-github"></i>
+                                <strong>Hospital-System</strong>
+                            </div>
+                        </td>
+
+                        <td>
+                            <span class="language">C++</span>
+                        </td>
+
+                        <td>42%</td>
+
+                        <td>
+                            <strong>58%</strong>
+                        </td>
+
+                        <td>81%</td>
+
+                        <td>
+                            <span class="status-badge processing">
+                                Processing
+                            </span>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MODEL INTELLIGENCE
+===================================================== -->
+
+<section class="model-section">
+
+    <div class="container-fluid px-lg-5">
+
+        <div class="section-heading-center">
+
+            <span class="section-label">
+                MACHINE LEARNING
+            </span>
+
+            <h2>
+                Model Intelligence
+            </h2>
+
+            <p>
+                The machine learning layer converts extracted
+                repository features into an interpretable prediction.
+            </p>
+
+        </div>
+
+
+        <div class="model-panel">
+
+            <div class="model-info-grid">
+
+                <div class="model-info">
+
+                    <span>Current Model</span>
+
+                    <strong>
+                        Random Forest v1.0
+                    </strong>
+
+                </div>
+
+
+                <div class="model-info">
+
+                    <span>Feature Count</span>
+
+                    <strong>
+                        15
+                    </strong>
+
+                </div>
+
+
+                <div class="model-info">
+
+                    <span>Input Modalities</span>
+
+                    <strong>
+                        03
+                    </strong>
+
+                </div>
+
+
+                <div class="model-info">
+
+                    <span>Classification</span>
+
+                    <strong>
+                        Human / AI
+                    </strong>
+
+                </div>
+
+
+                <div class="model-info">
+
+                    <span>Confidence Threshold</span>
+
+                    <strong>
+                        0.70
+                    </strong>
+
+                </div>
+
+
+                <div class="model-info">
+
+                    <span>Model Status</span>
+
+                    <strong class="ready">
+                        ● Ready
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="model-pipeline">
+
+                <div class="model-stage">
+                    Feature Extraction
+                </div>
+
+                <i class="bi bi-arrow-right"></i>
+
+                <div class="model-stage">
+                    Feature Fusion
+                </div>
+
+                <i class="bi bi-arrow-right"></i>
+
+                <div class="model-stage">
+                    ML Classification
+                </div>
+
+                <i class="bi bi-arrow-right"></i>
+
+                <div class="model-stage result-stage">
+                    Confidence Score
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SYSTEM ARCHITECTURE
+===================================================== -->
+
+<section class="architecture-section" id="architecture">
+
+    <div class="container-fluid px-lg-5">
+
+        <div class="section-heading-center">
+
+            <span class="section-label">
+                TECHNICAL ARCHITECTURE
+            </span>
+
+            <h2>
+                System Architecture
+            </h2>
+
+            <p>
+                A modular architecture connecting the web application,
+                repository processing layer and machine learning engine.
+            </p>
+
+        </div>
+
+
+        <div class="architecture-flow">
+
+            <div class="architecture-layer user-layer">
+
+                <div class="architecture-icon">
+                    <i class="bi bi-person"></i>
+                </div>
+
+                <div>
+                    <span>LAYER 01</span>
+                    <strong>User</strong>
+                </div>
+
+            </div>
+
+
+            <div class="architecture-connector">
+                ↓
+            </div>
+
+
+            <div class="architecture-layer">
+
+                <div class="architecture-icon">
+                    <i class="bi bi-window"></i>
+                </div>
+
+                <div>
+                    <span>FRONTEND</span>
+                    <strong>HTML · CSS · Bootstrap · JS</strong>
+                </div>
+
+            </div>
+
+
+            <div class="architecture-connector">
+                ↓
+            </div>
+
+
+            <div class="architecture-layer">
+
+                <div class="architecture-icon">
+                    <i class="bi bi-server"></i>
+                </div>
+
+                <div>
+                    <span>BACKEND</span>
+                    <strong>Node.js · Express.js</strong>
+                </div>
+
+            </div>
+
+
+            <div class="architecture-connector">
+                ↓
+            </div>
+
+
+            <div class="architecture-middle">
+
+                <div class="architecture-layer">
+
+                    <div class="architecture-icon">
+                        <i class="bi bi-git"></i>
+                    </div>
+
+                    <div>
+                        <span>PROCESSING</span>
+                        <strong>Repository Processing</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="architecture-layer">
+
+                    <div class="architecture-icon">
+                        <i class="bi bi-cpu"></i>
+                    </div>
+
+                    <div>
+                        <span>MACHINE LEARNING</span>
+                        <strong>Python · Scikit-learn</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="architecture-layer">
+
+                    <div class="architecture-icon">
+                        <i class="bi bi-database"></i>
+                    </div>
+
+                    <div>
+                        <span>DATABASE</span>
+                        <strong>MongoDB</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="architecture-connector">
+                ↓
+            </div>
+
+
+            <div class="architecture-layer prediction-layer">
+
+                <div class="architecture-icon">
+                    <i class="bi bi-graph-up-arrow"></i>
+                </div>
+
+                <div>
+                    <span>OUTPUT</span>
+                    <strong>Prediction · Confidence · Report</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FUTURE SCOPE
+===================================================== -->
+
+<section class="future-section">
+
+    <div class="container-fluid px-lg-5">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                FUTURE SCOPE
+            </span>
+
+            <h2>
+                Beyond Source Code
+            </h2>
+
+            <p>
+                The multi-modal architecture can be extended to
+                detect AI-generated content across other modalities.
+            </p>
+
+        </div>
+
+
+        <div class="future-grid">
+
+            <div class="future-item active">
+
+                <div class="future-number">
+                    01
+                </div>
+
+                <i class="bi bi-code-slash"></i>
+
+                <h3>
+                    Source Code
+                </h3>
+
+                <span>
+                    ACTIVE
+                </span>
+
+            </div>
+
+
+            <div class="future-item">
+
+                <div class="future-number">
+                    02
+                </div>
+
+                <i class="bi bi-image"></i>
+
+                <h3>
+                    Image
+                </h3>
+
+                <span>
+                    FUTURE
+                </span>
+
+            </div>
+
+
+            <div class="future-item">
+
+                <div class="future-number">
+                    03
+                </div>
+
+                <i class="bi bi-file-text"></i>
+
+                <h3>
+                    Text
+                </h3>
+
+                <span>
+                    FUTURE
+                </span>
+
+            </div>
+
+
+            <div class="future-item">
+
+                <div class="future-number">
+                    04
+                </div>
+
+                <i class="bi bi-mic"></i>
+
+                <h3>
+                    Audio
+                </h3>
+
+                <span>
+                    FUTURE
+                </span>
+
+            </div>
+
+
+            <div class="future-item">
+
+                <div class="future-number">
+                    05
+                </div>
+
+                <i class="bi bi-camera-video"></i>
+
+                <h3>
+                    Video / Deepfake
+                </h3>
+
+                <span>
+                    FUTURE
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     RESEARCH INSIGHTS
+===================================================== -->
+
+<section class="research-section" id="research">
+
+    <div class="container-fluid px-lg-5">
+
+        <div class="section-heading-center">
+
+            <span class="section-label">
+                RESEARCH INSIGHTS
+            </span>
+
+            <h2>
+                Why Repository-Level Detection?
+            </h2>
+
+            <p>
+                Source-code origin cannot always be inferred from
+                isolated snippets. Repository context adds valuable evidence.
+            </p>
+
+        </div>
+
+
+        <div class="research-grid">
+
+            <article class="research-card">
+
+                <span class="research-number">
+                    01
+                </span>
+
+                <div class="research-icon">
+                    <i class="bi bi-boxes"></i>
+                </div>
+
+                <h3>
+                    Context Matters
+                </h3>
+
+                <p>
+                    A code snippet alone may not reveal its origin.
+                    Repository context provides additional evidence
+                    about how the code exists within a larger system.
+                </p>
+
+            </article>
+
+
+            <article class="research-card">
+
+                <span class="research-number">
+                    02
+                </span>
+
+                <div class="research-icon">
+                    <i class="bi bi-activity"></i>
+                </div>
+
+                <h3>
+                    Behaviour Matters
+                </h3>
+
+                <p>
+                    Commit history and code evolution provide
+                    behavioural signals that cannot be captured
+                    from static source code alone.
+                </p>
+
+            </article>
+
+
+            <article class="research-card">
+
+                <span class="research-number">
+                    03
+                </span>
+
+                <div class="research-icon">
+                    <i class="bi bi-diagram-3"></i>
+                </div>
+
+                <h3>
+                    Multiple Signals Matter
+                </h3>
+
+                <p>
+                    Combining source-code, structural and repository
+                    features can provide richer evidence than relying
+                    on a single detection signal.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ANALYZE CTA
+===================================================== -->
+
+<section class="cta-section">
+
+    <div class="container">
+
+        <div class="cta-content">
+
+            <span class="section-label">
+                START ANALYSIS
+            </span>
+
+            <h2>
+                Ready to Investigate<br>
+                a Repository?
+            </h2>
+
+            <p>
+                Submit a repository and let CodeOrigin AI analyze
+                its code, structure and development patterns.
+            </p>
+
+            <a href="#" class="btn-primary-custom cta-button">
+                Start Repository Analysis
+                <i class="bi bi-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<%- include('../layouts/footer') %>
+
+
+<!-- Bootstrap JS -->
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+<script>
+    const chartPaths = {
+        commits: 'M0 250 L80 220 L160 235 L240 180 L320 200 L400 140 L480 165 L560 100 L640 125 L720 80 L800 110 L880 55 L1000 75',
+        added: 'M0 265 L80 230 L160 245 L240 210 L320 175 L400 190 L480 125 L560 145 L640 95 L720 120 L800 75 L880 95 L1000 45',
+        removed: 'M0 210 L80 235 L160 190 L240 220 L320 145 L400 175 L480 130 L560 165 L640 105 L720 145 L800 90 L880 120 L1000 80'
+    };
+
+    document.querySelectorAll('.chart-controls button').forEach((button) => {
+        button.addEventListener('click', () => {
+            document.querySelectorAll('.chart-controls button').forEach((item) => item.classList.remove('active'));
+            button.classList.add('active');
+            document.querySelector('.chart-path').setAttribute('d', chartPaths[button.dataset.series]);
+            document.querySelector('.chart-fill').setAttribute('d', `${chartPaths[button.dataset.series]} L1000 300 L0 300 Z`);
+        });
+    });
+</script>
+
+</body>
+</html>
