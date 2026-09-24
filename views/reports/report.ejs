@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Analysis Report | CodeOrigin AI</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <link rel="stylesheet" href="/css/navbar.css">
+
+    <!-- Report CSS -->
+    <link rel="stylesheet" href="/css/report.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+         NAVBAR
+    ========================================================== -->
+
+    <%- include("../layouts/navbar") %>
+
+
+    <main class="report-page">
+
+        <!-- =====================================================
+             REPORT HEADER
+        ====================================================== -->
+
+        <section class="report-hero">
+
+            <div class="container">
+
+                <div class="report-breadcrumb">
+                    <a href="/dashboard">
+                        <i class="bi bi-grid"></i>
+                        Dashboard
+                    </a>
+
+                    <span>/</span>
+
+                    <a href="/analyze">
+                        Analysis
+                    </a>
+
+                    <span>/</span>
+
+                    <span>Report</span>
+                </div>
+
+
+                <div class="report-hero-content">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            <span class="status-dot"></span>
+                            ANALYSIS COMPLETED
+                        </div>
+
+                        <h1>
+                            Code Analysis
+                            <span>Report</span>
+                        </h1>
+
+                        <p>
+                            Repository-level analysis using source code,
+                            AST structure, Git behaviour and machine learning.
+                        </p>
+
+                    </div>
+
+
+                    <div class="report-actions">
+
+                        <button
+                            class="btn-report secondary"
+                            onclick="window.print()"
+                        >
+                            <i class="bi bi-printer"></i>
+                            Print
+                        </button>
+
+                        <button
+                            class="btn-report primary"
+                            onclick="downloadReport()"
+                        >
+                            <i class="bi bi-download"></i>
+                            Download Report
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             REPOSITORY SUMMARY
+        ====================================================== -->
+
+        <section class="container report-container">
+
+            <div class="repository-card">
+
+                <div class="repository-main">
+
+                    <div class="repository-icon">
+                        <i class="bi bi-git"></i>
+                    </div>
+
+                    <div>
+
+                        <div class="repository-label">
+                            ANALYZED REPOSITORY
+                        </div>
+
+                        <h2>
+                            codeorigin-demo-project
+                        </h2>
+
+                        <a
+                            href="#"
+                            class="repository-url"
+                        >
+                            <i class="bi bi-link-45deg"></i>
+                            github.com/example/codeorigin-demo-project
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="repository-meta">
+
+                    <div>
+                        <span>Language</span>
+                        <strong>
+                            <i class="bi bi-filetype-js"></i>
+                            JavaScript
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Files</span>
+                        <strong>42</strong>
+                    </div>
+
+                    <div>
+                        <span>Lines</span>
+                        <strong>8,426</strong>
+                    </div>
+
+                    <div>
+                        <span>Commits</span>
+                        <strong>67</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 OVERALL PREDICTION
+            ================================================== -->
+
+            <section class="section-block">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="section-number">01</span>
+
+                        <div>
+                            <h2>Overall Prediction</h2>
+
+                            <p>
+                                Machine learning classification result
+                                based on multiple repository signals.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="prediction-grid">
+
+                    <!-- Prediction -->
+
+                    <div class="prediction-card main-prediction">
+
+                        <div class="prediction-card-top">
+
+                            <span class="prediction-label">
+                                FINAL CLASSIFICATION
+                            </span>
+
+                            <span class="prediction-status">
+                                <i class="bi bi-check-circle-fill"></i>
+                                ANALYZED
+                            </span>
+
+                        </div>
+
+
+                        <div class="prediction-result">
+
+                            <div class="prediction-icon">
+                                <i class="bi bi-cpu"></i>
+                            </div>
+
+                            <div>
+
+                                <span class="result-small">
+                                    Model Prediction
+                                </span>
+
+                                <h3>
+                                    AI-Generated
+                                </h3>
+
+                                <p>
+                                    The analyzed repository shows patterns
+                                    associated with AI-generated source code.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Confidence -->
+
+                    <div class="confidence-card">
+
+                        <span class="prediction-label">
+                            MODEL CONFIDENCE
+                        </span>
+
+                        <div class="confidence-value">
+                            87.4<span>%</span>
+                        </div>
+
+                        <div class="confidence-bar">
+                            <div
+                                class="confidence-progress"
+                                style="width: 87.4%;"
+                            ></div>
+                        </div>
+
+                        <p>
+                            Confidence represents the model's estimated
+                            certainty for this classification.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Probability -->
+
+                <div class="probability-grid">
+
+                    <div class="probability-card human">
+
+                        <div class="probability-header">
+
+                            <span>
+                                <i class="bi bi-person"></i>
+                                Human Probability
+                            </span>
+
+                            <strong>12.6%</strong>
+
+                        </div>
+
+                        <div class="probability-bar">
+                            <div
+                                style="width: 12.6%;"
+                            ></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="probability-card ai">
+
+                        <div class="probability-header">
+
+                            <span>
+                                <i class="bi bi-robot"></i>
+                                AI Probability
+                            </span>
+
+                            <strong>87.4%</strong>
+
+                        </div>
+
+                        <div class="probability-bar">
+                            <div
+                                style="width: 87.4%;"
+                            ></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 MULTI MODAL ANALYSIS
+            ================================================== -->
+
+            <section class="section-block">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-number">02</span>
+
+                        <div>
+                            <h2>Multi-Modal Analysis</h2>
+
+                            <p>
+                                Multiple repository signals were analyzed
+                                before generating the final prediction.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="modality-grid">
+
+                    <!-- CODE -->
+
+                    <div class="modality-card">
+
+                        <div class="modality-icon code-icon">
+                            <i class="bi bi-code-slash"></i>
+                        </div>
+
+                        <div class="modality-content">
+
+                            <span class="modality-label">
+                                MODALITY 01
+                            </span>
+
+                            <h3>Source Code</h3>
+
+                            <p>
+                                Analysis of lexical, stylistic and
+                                programming patterns.
+                            </p>
+
+                        </div>
+
+
+                        <div class="feature-list">
+
+                            <div>
+                                <span>Lines of Code</span>
+                                <strong>8,426</strong>
+                            </div>
+
+                            <div>
+                                <span>Functions</span>
+                                <strong>186</strong>
+                            </div>
+
+                            <div>
+                                <span>Comments Ratio</span>
+                                <strong>18.4%</strong>
+                            </div>
+
+                            <div>
+                                <span>Complexity</span>
+                                <strong>Medium</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- AST -->
+
+                    <div class="modality-card">
+
+                        <div class="modality-icon ast-icon">
+                            <i class="bi bi-diagram-3"></i>
+                        </div>
+
+                        <div class="modality-content">
+
+                            <span class="modality-label">
+                                MODALITY 02
+                            </span>
+
+                            <h3>AST Structure</h3>
+
+                            <p>
+                                Structural analysis of the source-code
+                                syntax tree.
+                            </p>
+
+                        </div>
+
+
+                        <div class="feature-list">
+
+                            <div>
+                                <span>AST Nodes</span>
+                                <strong>4,820</strong>
+                            </div>
+
+                            <div>
+                                <span>Tree Depth</span>
+                                <strong>14</strong>
+                            </div>
+
+                            <div>
+                                <span>Control Structures</span>
+                                <strong>126</strong>
+                            </div>
+
+                            <div>
+                                <span>Nested Blocks</span>
+                                <strong>37</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- GIT -->
+
+                    <div class="modality-card">
+
+                        <div class="modality-icon git-icon">
+                            <i class="bi bi-git"></i>
+                        </div>
+
+                        <div class="modality-content">
+
+                            <span class="modality-label">
+                                MODALITY 03
+                            </span>
+
+                            <h3>Git Behaviour</h3>
+
+                            <p>
+                                Repository history and development
+                                behaviour analysis.
+                            </p>
+
+                        </div>
+
+
+                        <div class="feature-list">
+
+                            <div>
+                                <span>Commits</span>
+                                <strong>67</strong>
+                            </div>
+
+                            <div>
+                                <span>Contributors</span>
+                                <strong>3</strong>
+                            </div>
+
+                            <div>
+                                <span>Code Churn</span>
+                                <strong>Medium</strong>
+                            </div>
+
+                            <div>
+                                <span>Commit Frequency</span>
+                                <strong>High</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ML -->
+
+                    <div class="modality-card">
+
+                        <div class="modality-icon ml-icon">
+                            <i class="bi bi-cpu"></i>
+                        </div>
+
+                        <div class="modality-content">
+
+                            <span class="modality-label">
+                                MODALITY 04
+                            </span>
+
+                            <h3>ML Intelligence</h3>
+
+                            <p>
+                                Fused features processed by the trained
+                                classification model.
+                            </p>
+
+                        </div>
+
+
+                        <div class="feature-list">
+
+                            <div>
+                                <span>Features Used</span>
+                                <strong>64</strong>
+                            </div>
+
+                            <div>
+                                <span>Model</span>
+                                <strong>Random Forest</strong>
+                            </div>
+
+                            <div>
+                                <span>Fusion</span>
+                                <strong>Enabled</strong>
+                            </div>
+
+                            <div>
+                                <span>Prediction</span>
+                                <strong>Generated</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 FEATURE ANALYSIS
+            ================================================== -->
+
+            <section class="section-block">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-number">03</span>
+
+                        <div>
+
+                            <h2>Feature Analysis</h2>
+
+                            <p>
+                                Important signals extracted from the
+                                analyzed repository.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="feature-analysis-grid">
+
+                    <div class="feature-panel">
+
+                        <div class="feature-panel-header">
+                            <div>
+                                <i class="bi bi-braces"></i>
+                                <span>Code Features</span>
+                            </div>
+
+                            <span class="feature-count">
+                                24 FEATURES
+                            </span>
+                        </div>
+
+
+                        <div class="feature-row">
+                            <span>Code Repetition</span>
+                            <strong>High</strong>
+                        </div>
+
+                        <div class="feature-row">
+                            <span>Naming Consistency</span>
+                            <strong>High</strong>
+                        </div>
+
+                        <div class="feature-row">
+                            <span>Function Length</span>
+                            <strong>Medium</strong>
+                        </div>
+
+                        <div class="feature-row">
+                            <span>Comment Pattern</span>
+                            <strong>Regular</strong>
+                        </div>
+
+                        <div class="feature-row">
+                            <span>Token Frequency</span>
+                            <strong>High</strong>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="feature-panel">
+
+                        <div class="feature-panel-header">
+
+                            <div>
+                                <i class="bi bi-diagram-3"></i>
+                                <span>AST Features</span>
+                            </div>
+
+                            <span class="feature-count">
+                                20 FEATURES
+                            </span>
+
+                        </div>
+
+
+                        <div class="feature-row">
+                            <span>AST Node Density</span>
+                            <strong>High</strong>
+                        </div>
+
+                        <div class="feature-row">
+                            <span>Tree Depth</span>
+                            <strong>Medium</strong>
+                        </div>
+
+                        <div class="feature-row">
+                            <span>Control Flow</span>
+                            <strong>Regular</strong>
+                        </div>
+
+                        <div class="feature-row">
+                            <span>Nested Structures</span>
+                            <strong>Medium</strong>
+                        </div>
+
+                        <div class="feature-row">
+                            <span>Syntax Pattern</span>
+                            <strong>Consistent</strong>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="feature-panel">
+
+                        <div class="feature-panel-header">
+
+                            <div>
+                                <i class="bi bi-git"></i>
+                                <span>Git Features</span>
+                            </div>
+
+                            <span class="feature-count">
+                                20 FEATURES
+                            </span>
+
+                        </div>
+
+
+                        <div class="feature-row">
+                            <span>Commit Frequency</span>
+                            <strong>High</strong>
+                        </div>
+
+                        <div class="feature-row">
+                            <span>Code Churn</span>
+                            <strong>Medium</strong>
+                        </div>
+
+                        <div class="feature-row">
+                            <span>Contributor Count</span>
+                            <strong>3</strong>
+                        </div>
+
+                        <div class="feature-row">
+                            <span>Modification Rate</span>
+                            <strong>High</strong>
+                        </div>
+
+                        <div class="feature-row">
+                            <span>Commit Size</span>
+                            <strong>Medium</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 WHY THIS PREDICTION
+            ================================================== -->
+
+            <section class="section-block">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-number">04</span>
+
+                        <div>
+
+                            <h2>Why This Prediction?</h2>
+
+                            <p>
+                                Key signals that contributed to the
+                                classification result.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="signals-card">
+
+                    <div class="signal-item">
+
+                        <div class="signal-icon">
+                            <i class="bi bi-check-lg"></i>
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                High structural regularity
+                            </h3>
+
+                            <p>
+                                The repository contains highly consistent
+                                structural patterns across multiple files.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="signal-item">
+
+                        <div class="signal-icon">
+                            <i class="bi bi-check-lg"></i>
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Repeated coding patterns
+                            </h3>
+
+                            <p>
+                                Similar syntax and implementation patterns
+                                were detected across source files.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="signal-item">
+
+                        <div class="signal-icon">
+                            <i class="bi bi-check-lg"></i>
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Consistent naming patterns
+                            </h3>
+
+                            <p>
+                                Naming conventions show a relatively
+                                uniform pattern across the repository.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="signal-item">
+
+                        <div class="signal-icon">
+                            <i class="bi bi-check-lg"></i>
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Regular syntax patterns
+                            </h3>
+
+                            <p>
+                                AST analysis identified recurring structural
+                                patterns within the source code.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 FILE LEVEL ANALYSIS
+            ================================================== -->
+
+            <section class="section-block">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-number">05</span>
+
+                        <div>
+
+                            <h2>File-Level Analysis</h2>
+
+                            <p>
+                                Individual source files analyzed by the
+                                classification engine.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table class="analysis-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>File</th>
+                                <th>Language</th>
+                                <th>LOC</th>
+                                <th>Complexity</th>
+                                <th>Prediction</th>
+                                <th>Confidence</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    <div class="file-name">
+                                        <i class="bi bi-filetype-js"></i>
+                                        app.js
+                                    </div>
+                                </td>
+
+                                <td>JavaScript</td>
+
+                                <td>420</td>
+
+                                <td>
+                                    <span class="table-badge medium">
+                                        Medium
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="prediction-badge ai">
+                                        AI-Generated
+                                    </span>
+                                </td>
+
+                                <td>89%</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <div class="file-name">
+                                        <i class="bi bi-filetype-js"></i>
+                                        authController.js
+                                    </div>
+                                </td>
+
+                                <td>JavaScript</td>
+
+                                <td>280</td>
+
+                                <td>
+                                    <span class="table-badge low">
+                                        Low
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="prediction-badge human">
+                                        Human
+                                    </span>
+                                </td>
+
+                                <td>71%</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <div class="file-name">
+                                        <i class="bi bi-filetype-js"></i>
+                                        repositoryScanner.js
+                                    </div>
+                                </td>
+
+                                <td>JavaScript</td>
+
+                                <td>356</td>
+
+                                <td>
+                                    <span class="table-badge high">
+                                        High
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="prediction-badge ai">
+                                        AI-Generated
+                                    </span>
+                                </td>
+
+                                <td>91%</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <div class="file-name">
+                                        <i class="bi bi-filetype-js"></i>
+                                        utils.js
+                                    </div>
+                                </td>
+
+                                <td>JavaScript</td>
+
+                                <td>150</td>
+
+                                <td>
+                                    <span class="table-badge low">
+                                        Low
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="prediction-badge human">
+                                        Human
+                                    </span>
+                                </td>
+
+                                <td>68%</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 RECOMMENDATIONS
+            ================================================== -->
+
+            <section class="section-block">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-number">06</span>
+
+                        <div>
+
+                            <h2>Recommendations</h2>
+
+                            <p>
+                                Actionable suggestions generated from
+                                the detected code and repository patterns.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="recommendations-grid">
+
+                    <div class="recommendation-card priority-high">
+
+                        <div class="recommendation-top">
+
+                            <div class="recommendation-icon">
+                                <i class="bi bi-arrow-repeat"></i>
+                            </div>
+
+                            <span class="priority-badge high">
+                                HIGH PRIORITY
+                            </span>
+
+                        </div>
+
+
+                        <h3>
+                            Refactor repeated code
+                        </h3>
+
+                        <p>
+                            Multiple similar implementation patterns were
+                            detected. Consider extracting reusable functions
+                            or modules to reduce duplication.
+                        </p>
+
+
+                        <div class="recommendation-footer">
+                            <i class="bi bi-lightbulb"></i>
+                            Code Quality
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="recommendation-card priority-medium">
+
+                        <div class="recommendation-top">
+
+                            <div class="recommendation-icon">
+                                <i class="bi bi-diagram-3"></i>
+                            </div>
+
+                            <span class="priority-badge medium">
+                                REVIEW
+                            </span>
+
+                        </div>
+
+
+                        <h3>
+                            Review complex functions
+                        </h3>
+
+                        <p>
+                            Some functions contain multiple nested structures.
+                            Consider splitting complex logic into smaller
+                            reusable functions.
+                        </p>
+
+
+                        <div class="recommendation-footer">
+                            <i class="bi bi-lightbulb"></i>
+                            Maintainability
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="recommendation-card priority-medium">
+
+                        <div class="recommendation-top">
+
+                            <div class="recommendation-icon">
+                                <i class="bi bi-journal-text"></i>
+                            </div>
+
+                            <span class="priority-badge medium">
+                                REVIEW
+                            </span>
+
+                        </div>
+
+
+                        <h3>
+                            Improve documentation
+                        </h3>
+
+                        <p>
+                            Important functions and modules could benefit
+                            from clearer documentation and meaningful comments.
+                        </p>
+
+
+                        <div class="recommendation-footer">
+                            <i class="bi bi-lightbulb"></i>
+                            Documentation
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="recommendation-card priority-info">
+
+                        <div class="recommendation-top">
+
+                            <div class="recommendation-icon">
+                                <i class="bi bi-git"></i>
+                            </div>
+
+                            <span class="priority-badge info">
+                                INFO
+                            </span>
+
+                        </div>
+
+
+                        <h3>
+                            Maintain meaningful Git history
+                        </h3>
+
+                        <p>
+                            Use meaningful commit messages and maintain
+                            regular commits to preserve useful development
+                            context.
+                        </p>
+
+
+                        <div class="recommendation-footer">
+                            <i class="bi bi-lightbulb"></i>
+                            Repository Practice
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 LIMITATIONS
+            ================================================== -->
+
+            <section class="section-block">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-number">07</span>
+
+                        <div>
+
+                            <h2>Analysis Limitations</h2>
+
+                            <p>
+                                Important context about interpreting
+                                the generated result.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="limitations-card">
+
+                    <div class="limitation-icon">
+                        <i class="bi bi-info-circle"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Interpret the prediction carefully
+                        </h3>
+
+                        <p>
+                            The prediction is based on learned patterns
+                            from the available source-code, structural and
+                            repository signals. It should not be treated as
+                            definitive proof of authorship.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="limitation-grid">
+
+                    <div>
+                        <i class="bi bi-check-circle"></i>
+                        Source-code signals analyzed
+                    </div>
+
+                    <div>
+                        <i class="bi bi-check-circle"></i>
+                        AST signals analyzed
+                    </div>
+
+                    <div>
+                        <i class="bi bi-check-circle"></i>
+                        Git history available
+                    </div>
+
+                    <div>
+                        <i class="bi bi-check-circle"></i>
+                        ML prediction generated
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 ANALYSIS PIPELINE
+            ================================================== -->
+
+            <section class="section-block">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-number">08</span>
+
+                        <div>
+
+                            <h2>Analysis Pipeline</h2>
+
+                            <p>
+                                How CodeOrigin AI processed this repository.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="pipeline">
+
+                    <div class="pipeline-step">
+
+                        <div class="pipeline-icon">
+                            <i class="bi bi-github"></i>
+                        </div>
+
+                        <span>Repository</span>
+
+                    </div>
+
+
+                    <div class="pipeline-line"></div>
+
+
+                    <div class="pipeline-step">
+
+                        <div class="pipeline-icon">
+                            <i class="bi bi-search"></i>
+                        </div>
+
+                        <span>Extraction</span>
+
+                    </div>
+
+
+                    <div class="pipeline-line"></div>
+
+
+                    <div class="pipeline-step">
+
+                        <div class="pipeline-icon">
+                            <i class="bi bi-braces"></i>
+                        </div>
+
+                        <span>Features</span>
+
+                    </div>
+
+
+                    <div class="pipeline-line"></div>
+
+
+                    <div class="pipeline-step">
+
+                        <div class="pipeline-icon">
+                            <i class="bi bi-diagram-3"></i>
+                        </div>
+
+                        <span>Fusion</span>
+
+                    </div>
+
+
+                    <div class="pipeline-line"></div>
+
+
+                    <div class="pipeline-step active">
+
+                        <div class="pipeline-icon">
+                            <i class="bi bi-cpu"></i>
+                        </div>
+
+                        <span>ML Model</span>
+
+                    </div>
+
+
+                    <div class="pipeline-line"></div>
+
+
+                    <div class="pipeline-step">
+
+                        <div class="pipeline-icon">
+                            <i class="bi bi-bar-chart"></i>
+                        </div>
+
+                        <span>Prediction</span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 REPORT FOOTER ACTION
+            ================================================== -->
+
+            <section class="report-final">
+
+                <div>
+
+                    <span class="final-eyebrow">
+                        <i class="bi bi-shield-check"></i>
+                        CODEORIGIN AI ANALYSIS
+                    </span>
+
+                    <h2>
+                        Analysis completed successfully.
+                    </h2>
+
+                    <p>
+                        This report summarizes repository-level signals,
+                        model prediction and actionable code insights.
+                    </p>
+
+                </div>
+
+
+                <div class="final-actions">
+
+                    <a
+                        href="/repository/analyze"
+                        class="btn-report secondary"
+                    >
+                        <i class="bi bi-arrow-left"></i>
+                        Analyze Another
+                    </a>
+
+                    <button
+                        class="btn-report primary"
+                        onclick="downloadReport()"
+                    >
+                        <i class="bi bi-file-earmark-pdf"></i>
+                        Export Report
+                    </button>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <%- include("../layouts/footer") %>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+        function downloadReport() {
+
+            /*
+             * Later connect this button with:
+             *
+             * /reports/:analysisId/download
+             *
+             * or reportController.js
+             */
+
+            alert("PDF report generation will be connected with the backend.");
+
+        }
+
+
+        // Animate confidence bar after page load
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const progress =
+                document.querySelector(".confidence-progress");
+
+            if (progress) {
+
+                const width = progress.style.width;
+
+                progress.style.width = "0%";
+
+                setTimeout(() => {
+
+                    progress.style.width = width;
+
+                }, 300);
+
+            }
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>

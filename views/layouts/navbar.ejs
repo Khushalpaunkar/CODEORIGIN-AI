@@ -1,15 +1,15 @@
-<nav class="navbar navbar-expand-lg main-navbar">
+<nav class="navbar navbar-expand-md main-navbar">
 	<div class="container-fluid px-lg-5">
-		<a class="navbar-brand brand-logo" href="#dashboard" aria-label="CodeOrigin AI home">
+		<a class="navbar-brand brand-logo" href="/" aria-label="CodeOrigin AI home">
 			<span class="brand-symbol">&lt;/&gt;</span>
 			<span>CodeOrigin <strong>AI</strong></span>
 		</a>
 
 		<button
-			class="navbar-toggler"
+			class="navbar-toggler nav-toggle"
 			type="button"
 			data-bs-toggle="collapse"
-			data-bs-target="#mainNav"
+			data-bs-target="#mainNav" 
 			aria-controls="mainNav"
 			aria-expanded="false"
 			aria-label="Toggle navigation"
@@ -17,37 +17,84 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<button class="nav-toggle" type="button" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-			<i class="bi bi-list"></i>
-		</button>
-
 		<div class="collapse navbar-collapse" id="mainNav">
 			<ul class="navbar-nav mx-auto">
 				<li class="nav-item">
-					<a class="nav-link active" href="#dashboard">Home</a>
+					<a class="nav-link<%= path === '/' ? ' active' : '' %>" href="/">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#analysis">Analyze</a>
+					<a class="nav-link<%= path === '/analyze' ? ' active' : '' %>" href="/analyze">Analyze</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#framework">Framework</a>
+					<a class="nav-link<%= path === '/report' || path === '/reports' ? ' active' : '' %>" href="/report">Reports</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#intelligence">Features</a>
-				</li>
-                <li class="nav-item">
-					<a class="nav-link login-link" href="#login">LOG IN</a>
-                </li>
 			</ul>
-            
 
-			<!-- <div class="navbar-actions">
-				<div class="system-status">
-					<span class="status-dot"></span>
-					System Online
+			<% if (currentUser) { %>
+				<div class="user-menu">
+					<button class="user-menu-toggle" type="button" data-user-toggle aria-expanded="false" aria-label="Account menu">
+						<span class="user-avatar">
+							<%= currentUser.name.charAt(0).toUpperCase() %><%= (currentUser.name.split(' ')[1] || '').charAt(0).toUpperCase() %>
+						</span>
+						<span class="user-name"><%= currentUser.username %></span>
+						<i class="bi bi-chevron-down"></i>
+					</button>
+
+					<div class="user-dropdown">
+						<a class="user-dropdown-item" href="/dashboard">
+							<i class="bi bi-grid"></i>
+							Dashboard
+						</a>
+						<a class="user-dropdown-item" href="#profile">
+							<i class="bi bi-person"></i>
+							Profile
+						</a>
+						<div class="user-dropdown-divider"></div>
+						<form action="/auth/logout" method="POST">
+							<button class="user-dropdown-item" type="submit">
+								<i class="bi bi-box-arrow-right"></i>
+								Logout
+							</button>
+						</form>
+					</div>
 				</div>
-				<button class="profile-button" type="button" aria-label="Open profile">KP</button>
-			</div> -->
+			<% } else { %>
+				<ul class="navbar-nav auth-nav">
+					<li class="nav-item">
+						<a class="nav-link login-link" href="/auth/login">LOG IN</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link create-account-link" href="/auth/register">CREATE ACCOUNT</a>
+					</li>
+				</ul>
+			<% } %>
 		</div>
 	</div>
 </nav>
+
+<script>
+	(function () {
+		var toggle = document.querySelector('[data-user-toggle]');
+		if (!toggle) return;
+
+		var dropdown = toggle.nextElementSibling;
+
+		toggle.addEventListener('click', function (e) {
+			e.stopPropagation();
+			var isOpen = dropdown.classList.toggle('show');
+			toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+		});
+
+		document.addEventListener('click', function () {
+			dropdown.classList.remove('show');
+			toggle.setAttribute('aria-expanded', 'false');
+		});
+
+		document.addEventListener('keydown', function (e) {
+			if (e.key === 'Escape') {
+				dropdown.classList.remove('show');
+				toggle.setAttribute('aria-expanded', 'false');
+			}
+		});
+	})();
+</script>
