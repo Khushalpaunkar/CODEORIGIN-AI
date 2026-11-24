@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title><%= pageTitle %></title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <link rel="stylesheet" href="/css/navbar.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+
+    <!-- Analysis CSS -->
+    <link rel="stylesheet" href="/css/analysis.css">
+</head>
+
+<body>
+
+    <%- include('../layouts/navbar') %>
+
+    <%
+        const repo = analysis.repository;
+        const analysisData = JSON.stringify({ analysisId: analysis.analysisId });
+        function fileIcon(ext, type) {
+            if (type === 'folder') return 'bi-folder2-open';
+            const icons = {
+                '.js': 'bi-filetype-js', '.jsx': 'bi-filetype-jsx',
+                '.mjs': 'bi-filetype-js', '.cjs': 'bi-filetype-js',
+                '.ts': 'bi-filetype-ts', '.tsx': 'bi-filetype-tsx',
+                '.py': 'bi-filetype-py', '.java': 'bi-filetype-java',
+                '.c': 'bi-filetype-c', '.h': 'bi-filetype-c',
+                '.cpp': 'bi-filetype-cpp', '.cc': 'bi-filetype-cpp', '.cxx': 'bi-filetype-cpp',
+                '.hpp': 'bi-filetype-cpp', '.cs': 'bi-filetype-cs',
+                '.go': 'bi-filetype-go', '.rs': 'bi-filetype-rs',
+                '.php': 'bi-filetype-php', '.rb': 'bi-filetype-rb',
+                '.html': 'bi-filetype-html', '.htm': 'bi-filetype-html',
+                '.css': 'bi-filetype-css', '.scss': 'bi-filetype-sass',
+                '.json': 'bi-filetype-json', '.md': 'bi-filetype-md',
+                '.yml': 'bi-filetype-yml', '.yaml': 'bi-filetype-yml',
+                '.sh': 'bi-filetype-sh', '.sql': 'bi-filetype-sql',
+                '.vue': 'bi-filetype-vue', '.xml': 'bi-filetype-xml',
+            };
+            return icons[ext] || (type === 'file' ? 'bi-file-earmark-code' : 'bi-file-earmark');
+        }
+        function renderNodes(nodes, depth) {
+            if (!nodes || !nodes.length) return '';
+            let html = '<ul class="tree-list tree-depth-' + Math.min(depth, 6) + '">';
+            nodes.forEach(function (node) {
+                const escapedPath = String(node.path).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                const escapedName = String(node.name).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                if (node.type === 'folder') {
+                    html += '<li class="tree-folder">'
+                        + '<button type="button" class="tree-toggle" aria-expanded="false">'
+                        + '<i class="bi bi-chevron-right tree-chevron"></i>'
+                        + '<i class="bi bi-folder tree-folder-icon"></i>'
+                        + '<span class="tree-name">' + escapedName + '</span>'
+                        + '</button>'
+                        + '<div class="tree-children">' + renderNodes(node.children || [], depth + 1) + '</div>'
+                        + '</li>';
+                } else {
+                    html += '<li class="tree-file-item">'
+                        + '<button type="button" class="tree-file' + (node.supported ? ' supported' : '') + '"'
+                        + ' title="' + escapedPath + '"'
+                        + ' data-path="' + escapedPath + '"'
+                        + ' data-name="' + escapedName + '"'
+                        + ' data-ext="' + String(node.ext || '') + '"'
+                        + ' data-size="' + Number(node.size || 0) + '"'
+                        + ' data-lines="' + Number(node.lines || 0) + '"'
+                        + ' data-supported="' + (node.supported ? 'true' : 'false') + '">'
+                        + '<i class="bi ' + fileIcon(node.ext, 'file') + ' tree-file-icon"></i>'
+                        + '<span class="tree-name">' + escapedName + '</span>'
+                        + '<span class="tree-file-size">' + formatBytes(Number(node.size || 0)) + '</span>'
+                        + (node.lines ? '<span class="tree-file-lines">' + node.lines + '</span>' : '')
+                        + '</button>'
+                        + '</li>';
+                }
+            });
+            html += '</ul>';
+            return html;
+        }
+    %>
+
+    <main class="analysis-page">
+
+        <!-- PAGE INTRO -->
+        <section class="page-intro">
+            <div class="container">
+                <div class="intro-content">
+                    <div class="status-label">
+                        <span></span>
+                        <%= statusLabel %>
+                    </div>
+                    <h1>
+                        Repository
+                        <span>Analysis.</span>
+                    </h1>
+                    <p>
+                        <a class="repo-title-link" href="<%= repo.url %>" target="_blank" rel="noopener noreferrer">
+                            <i class="bi bi-github"></i>
+                            <%= repo.owner %> / <%= repo.name %>
+                            <i class="bi bi-box-arrow-up-right"></i>
+                        </a>
+                    </p>
+                    <% if (repo.description) { %>
+                        <p class="intro-description"><%= repo.description %></p>
+                    <% } %>
+                    <div class="intro-actions">
+                        <a class="back-link" href="/analyze">
+                            <i class="bi bi-arrow-left"></i>
+                            Analyze another repository
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <% if (analysis.status === 'failed' || analysis.status === 'empty') { %>
+            <section class="analysis-alert-section">
+                <div class="container">
+                    <div class="analysis-alert-card">
+                        <i class="bi bi-exclamation-triangle"></i>
+                        <div>
+                            <h2><%= analysis.status === 'empty' ? 'Empty repository' : 'Analysis incomplete' %></h2>
+                            <p><%= analysis.errorMessage || 'This repository could not be fully analyzed.' %></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <% } %>
+
+        <!-- REPOSITORY OVERVIEW -->
+        <section class="overview-section">
+            <div class="container">
+                <div class="section-top">
+                    <div>
+                        <span class="mini-label">01 / OVERVIEW</span>
+                        <h2>Repository Details</h2>
+                    </div>
+                    <span class="section-count"><i class="bi bi-github"></i> PUBLIC SOURCE</span>
+                </div>
+
+                <div class="overview-card">
+                    <div class="overview-grid">
+                        <div class="overview-item">
+                            <span class="mini-label">REPOSITORY NAME</span>
+                            <strong><%= repo.name %></strong>
+                        </div>
+                        <div class="overview-item">
+                            <span class="mini-label">GITHUB OWNER</span>
+                            <strong><%= repo.owner %></strong>
+                        </div>
+                        <div class="overview-item">
+                            <span class="mini-label">DEFAULT BRANCH</span>
+                            <strong>
+                                <i class="bi bi-git"></i>
+                                <%= repo.defaultBranch || 'Not reported' %>
+                            </strong>
+                        </div>
+                        <div class="overview-item">
+                            <span class="mini-label">VISIBILITY</span>
+                            <strong>
+                                <span class="visibility-badge">
+                                    <i class="bi bi-globe2"></i>
+                                    <%= repo.visibility || 'public' %>
+                                </span>
+                            </strong>
+                        </div>
+                        <div class="overview-item overview-item-wide">
+                            <span class="mini-label">REPOSITORY URL</span>
+                            <strong>
+                                <a class="repo-url-link" href="<%= repo.url %>" target="_blank" rel="noopener noreferrer">
+                                    <%= repo.url %>
+                                    <i class="bi bi-box-arrow-up-right"></i>
+                                </a>
+                            </strong>
+                        </div>
+                        <div class="overview-item overview-item-wide">
+                            <span class="mini-label">DESCRIPTION</span>
+                            <strong class="overview-description">
+                                <%= repo.description || 'No description provided by the repository owner.' %>
+                            </strong>
+                        </div>
+                        <div class="overview-item">
+                            <span class="mini-label">LAST UPDATED</span>
+                            <strong>
+                                <%= repo.lastUpdated
+                                    ? new Date(repo.lastUpdated).toLocaleString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })
+                                    : 'Not available' %>
+                            </strong>
+                        </div>
+                        <div class="overview-item">
+                            <span class="mini-label">ANALYSIS ID</span>
+                            <strong class="analysis-id"><%= analysis.analysisId %></strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REPOSITORY STATISTICS -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="section-top">
+                    <div>
+                        <span class="mini-label">02 / STATISTICS</span>
+                        <h2>Scan Overview</h2>
+                    </div>
+                    <span class="section-count">RECURSIVE SOURCE SCAN</span>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card"><span class="mini-label">TOTAL FILES SCANNED</span><strong><%= stats.totalFiles || 0 %></strong><i class="bi bi-files"></i></div>
+                    <div class="stat-card"><span class="mini-label">TOTAL FOLDERS</span><strong><%= stats.totalFolders || 0 %></strong><i class="bi bi-folder2"></i></div>
+                    <div class="stat-card"><span class="mini-label">SUPPORTED SOURCE FILES</span><strong><%= stats.supportedFiles || 0 %></strong><i class="bi bi-file-earmark-code"></i></div>
+                    <div class="stat-card"><span class="mini-label">TOTAL LINES OF CODE</span><strong><%= (stats.totalLines || 0).toLocaleString() %></strong><i class="bi bi-list-code"></i></div>
+                    <div class="stat-card"><span class="mini-label">BLANK LINES</span><strong><%= (stats.blankLines || 0).toLocaleString() %></strong><i class="bi bi-indent"></i></div>
+                    <div class="stat-card"><span class="mini-label">COMMENT LINES</span><strong><%= (stats.commentLines || 0).toLocaleString() %></strong><i class="bi bi-chat-left-text"></i></div>
+                    <div class="stat-card"><span class="mini-label">CODE LINES</span><strong><%= (stats.codeLines || 0).toLocaleString() %></strong><i class="bi bi-code-slash"></i></div>
+                    <div class="stat-card"><span class="mini-label">LANGUAGES DETECTED</span><strong><%= languages.length %></strong><i class="bi bi-diagram-3"></i></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LANGUAGE DISTRIBUTION -->
+        <section class="language-section">
+            <div class="container">
+                <div class="section-top">
+                    <div>
+                        <span class="mini-label">03 / LANGUAGES</span>
+                        <h2>Language Distribution</h2>
+                    </div>
+                    <span class="section-count"><%= languages.length %> DETECTED</span>
+                </div>
+
+                <% if (languages.length) { %>
+                    <div class="language-grid">
+                        <div class="chart-card">
+                            <span class="mini-label">FILE SHARE BY LANGUAGE</span>
+                            <div class="chart-wrap">
+                                <canvas id="languageChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="language-table-card">
+                            <table class="analysis-table language-table">
+                                <thead>
+                                    <tr>
+                                        <th>LANGUAGE</th>
+                                        <th>FILES</th>
+                                        <th>LINES</th>
+                                        <th>SHARE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% languages.forEach(function (lang) { %>
+                                        <tr>
+                                            <td>
+                                                <span class="lang-dot" style="background:<%= chartColors[languages.indexOf(lang) % chartColors.length] %>"></span>
+                                                <i class="bi bi-file-code"></i>
+                                                <%= lang.name %>
+                                            </td>
+                                            <td><%= lang.files %></td>
+                                            <td><%= lang.lines.toLocaleString() %></td>
+                                            <td>
+                                                <div class="lang-percent">
+                                                    <div class="lang-bar"><span style="width:<%= lang.percent %>%;background:<%= chartColors[languages.indexOf(lang) % chartColors.length] %>"></span></div>
+                                                    <b><%= lang.percent %>%</b>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                <% } else { %>
+                    <div class="empty-state-card">
+                        <i class="bi bi-inboxes"></i>
+                        <h3>No supported source languages detected</h3>
+                        <p>This repository does not contain files with recognized source-code extensions.</p>
+                    </div>
+                <% } %>
+            </div>
+        </section>
+
+        <!-- FILE EXPLORER -->
+        <section class="explorer-section">
+            <div class="container">
+                <div class="section-top">
+                    <div>
+                        <span class="mini-label">04 / FILE EXPLORER</span>
+                        <h2>Repository Structure</h2>
+                    </div>
+                    <span class="section-count"><%= stats.totalFiles || 0 %> FILES / <%= stats.totalFolders || 0 %> FOLDERS</span>
+                </div>
+
+                <% if ((analysis.fileTree || []).length) { %>
+                    <div class="explorer-card">
+                        <div class="explorer-sidebar">
+                            <div class="explorer-toolbar">
+                                <span><i class="bi bi-folder2-open"></i> FILES</span>
+                                <span class="explorer-hint">Click a file to view source</span>
+                            </div>
+                            <div class="tree-root">
+                                <%- renderNodes(analysis.fileTree, 0) %>
+                            </div>
+                        </div>
+                        <div class="code-viewer">
+                            <div class="code-viewer-header" id="viewerHeader">
+                                <span class="mini-label">SOURCE VIEWER</span>
+                                <span class="viewer-placeholder">Select a file from the tree</span>
+                            </div>
+                            <div class="code-viewer-body" id="viewerBody">
+                                <div class="viewer-empty">
+                                    <i class="bi bi-file-earmark-code"></i>
+                                    <p>Select a file to view its source code.</p>
+                                    <small>Supported source files with stored content are readable here.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% } else { %>
+                    <div class="empty-state-card">
+                        <i class="bi bi-folder-x"></i>
+                        <h3>No files were found</h3>
+                        <p>This repository does not contain scannable files.</p>
+                    </div>
+                <% } %>
+            </div>
+        </section>
+
+        <!-- ANALYSIS STATUS -->
+        <section class="status-section">
+            <div class="container">
+                <div class="status-card">
+                    <div class="status-card-main">
+                        <span class="mini-label">05 / ANALYSIS STATUS</span>
+                        <h2>
+                            <span class="status-badge <%= analysis.status %>">
+                                <i class="bi <%= analysis.status === 'completed' ? 'bi-check-circle' : 'bi-exclamation-circle' %>"></i>
+                                <%= analysis.statusLabel || statusLabel %>
+                            </span>
+                        </h2>
+                        <p>
+                            Scanned <strong><%= stats.totalFiles || 0 %></strong> files across
+                            <strong><%= stats.totalFolders || 0 %></strong> folders.
+                            <% if (stats.supportedFiles) { %>
+                                <%= stats.supportedFiles %> supported source files were parsed.
+                            <% } %>
+                        </p>
+                        <div class="status-progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                            <span style="width:100%"></span>
+                        </div>
+                        <small class="status-progress-label">SCAN COMPLETE — 100%</small>
+                    </div>
+                    <div class="status-meta">
+                        <div><span class="mini-label">STARTED</span><strong><%= new Date(analysis.startedAt || analysis.createdAt).toLocaleString() %></strong></div>
+                        <div><span class="mini-label">COMPLETED</span><strong><%= analysis.completedAt ? new Date(analysis.completedAt).toLocaleString() : '—' %></strong></div>
+                        <div><span class="mini-label">ANALYSIS ID</span><strong class="analysis-id"><%= analysis.analysisId %></strong></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <%- include('../layouts/footer') %>
+
+    <script id="analysisConfig" type="application/json"><%- analysisData %></script>
+    <script id="languageData" type="application/json"><%- languagesJson %></script>
+    <script src="/js/analysis.js" defer></script>
+
+</body>
+</html>

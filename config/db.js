@@ -1,25 +1,35 @@
 const mongoose = require('mongoose');
 
+mongoose.connection.on('connected', () => {
+    console.log('MongoDB connected successfully.');
+});
+
+mongoose.connection.on('disconnected', () => {
+    console.warn('MongoDB connection lost.');
+});
+
 const connectDB = async () => {
     try {
         const uri = process.env.MONGODB_URI;
 
         if (!uri) {
-            console.error('MONGODB_URI is not defined in .env');
+            console.error('MongoDB connection failed: MONGODB_URI is not defined.');
             return false;
         }
 
-        const conn = await mongoose.connect(uri, {
+        await mongoose.connect(uri, {
             serverSelectionTimeoutMS: 10000,
         });
 
-        console.log(`MongoDB connected successfully (${conn.connection.host})`);
         return true;
     } catch (error) {
-        console.error('MongoDB connection failed:', error.message);
-        console.error('Update MONGODB_URI with the current Atlas database user credentials, then restart the server.');
+        console.error(
+            `MongoDB connection failed (${error.name || 'unknown error'}). Check MONGODB_URI and network access.`
+        );
         return false;
     }
 };
 
-module.exports = connectDB;
+const isDatabaseConnected = () => mongoose.connection.readyState === 1;
+
+module.exports = { connectDB, isDatabaseConnected };

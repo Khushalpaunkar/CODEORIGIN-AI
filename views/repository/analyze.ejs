@@ -19,6 +19,7 @@
     >
 
     <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/navbar.css">
         <link rel="stylesheet" href="/css/analyze.css">
 </head>
 
@@ -115,14 +116,15 @@
                     placeholder="https://github.com/username/repository"
                 >
 
-                <button
-                    type="button"
-                    class="scan-btn"
-                    onclick="showRepository()"
-                >
-                    Scan Repository
-                    <i class="bi bi-arrow-right"></i>
-                </button>
+                 <button class="final-analyze-btn">
+
+                <i class="bi bi-cpu"></i>
+
+                Analyze Repository
+
+                <i class="bi bi-arrow-right"></i>
+
+            </button>
 
             </div>
 
@@ -1023,6 +1025,109 @@
         });
 
     }
+
+    (function () {
+
+        const analyzeBtn = document.querySelector(".final-analyze-btn");
+
+        if (!analyzeBtn) return;
+
+        const originalHtml = analyzeBtn.innerHTML;
+
+        function showError(message) {
+
+            let box = document.getElementById("analysisErrorBox");
+
+            if (!box) {
+
+                box = document.createElement("p");
+
+                box.id = "analysisErrorBox";
+
+                box.style.cssText =
+                    "color:#ff806b;font-family:var(--mono);font-size:11px;" +
+                    "margin:16px 0 0;text-align:center;max-width:420px;";
+
+                analyzeBtn.insertAdjacentElement("afterend", box);
+
+            }
+
+            box.textContent = message;
+
+        }
+
+        function clearError() {
+
+            const box = document.getElementById("analysisErrorBox");
+
+            if (box) box.remove();
+
+        }
+
+        analyzeBtn.addEventListener("click", async function () {
+
+            clearError();
+
+            const input = document.getElementById("repositoryUrl");
+
+            const url = input ? input.value.trim() : "";
+
+            if (!url) {
+
+                showError("Please enter a GitHub repository URL.");
+
+                return;
+
+            }
+
+            analyzeBtn.disabled = true;
+
+            analyzeBtn.innerHTML =
+                '<i class="bi bi-hourglass-split"></i> Analyzing Repository…' +
+                ' <i class="bi bi-arrow-repeat"></i>';
+
+            try {
+
+                const response = await fetch("/api/analyze", {
+
+                    method: "POST",
+
+                    headers: { "Content-Type": "application/json" },
+
+                    body: JSON.stringify({ url: url }),
+
+                });
+
+                const data = await response.json().catch(function () { return {}; });
+
+                if (response.ok && data.success && data.analysisId) {
+
+                    window.location.href = "/analysis/" + data.analysisId;
+
+                    return;
+
+                }
+
+                showError(
+                    data.error ||
+                    "Analysis failed. Please check the URL and try again."
+                );
+
+            } catch (err) {
+
+                showError("Network error while starting analysis. Please try again.");
+
+            } finally {
+
+                analyzeBtn.disabled = false;
+
+                analyzeBtn.innerHTML = originalHtml;
+
+            }
+
+        });
+
+    })();
 
 </script>
 

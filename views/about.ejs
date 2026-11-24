@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CodeOrigin AI — a repository-level source code authorship analysis platform built by students at JD College of Engineering and Management, Nagpur.">
+    <meta name="theme-color" content="#17191C">
+
+    <title>About | CodeOrigin AI</title>
+
+    <!-- Fonts: Sora headings, Inter body, JetBrains Mono technical labels -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/about.css">
+</head>
+
+<body class="about-body">
+
+    <%- include('layouts/navbar') %>
+
+    <main class="about-page">
+
+        <!-- =========================================================
+             HERO
+        ========================================================== -->
+        <section class="about-hero" id="top">
+            <div class="hero-glow glow-coral" aria-hidden="true"></div>
+            <div class="hero-glow glow-steel" aria-hidden="true"></div>
+            <div class="hero-grid" aria-hidden="true"></div>
+
+            <div class="container hero-container">
+                <div class="row align-items-center g-5">
+
+                    <div class="col-lg-6 hero-copy reveal">
+                        <span class="eyebrow">
+                            <span class="eyebrow-dot" aria-hidden="true"></span>
+                            ABOUT CODEORIGIN AI
+                        </span>
+
+                        <h1>
+                            Understanding the Origin of
+                            <span class="accent-text">Every Line of Code.</span>
+                        </h1>
+
+                        <p class="hero-description">
+                            CodeOrigin AI is a repository-level source code authorship
+                            analysis platform that investigates characteristics associated
+                            with human-written and AI-generated code using a multi-modal
+                            machine learning approach.
+                        </p>
+
+                        <div class="hero-actions">
+                            <a href="#technology" class="btn-hero btn-hero-primary">
+                                <i class="bi bi-diagram-3" aria-hidden="true"></i>
+                                Explore Technology
+                                <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                            </a>
+                            <a href="/analyze" class="btn-hero btn-hero-secondary">
+                                <i class="bi bi-cpu" aria-hidden="true"></i>
+                                Analyze Repository
+                            </a>
+                        </div>
+
+                        <div class="hero-meta">
+                            <span><i class="bi bi-patch-check" aria-hidden="true"></i> REPOSITORY-LEVEL ANALYSIS</span>
+                            <span><i class="bi bi-layers" aria-hidden="true"></i> FOUR FEATURE DIMENSIONS</span>
+                            <span><i class="bi bi-people" aria-hidden="true"></i> STUDENT RESEARCH PROJECT</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 hero-visual reveal">
+                        <div class="visual-stage">
+
+                            <svg class="neural-lines" viewBox="0 0 520 460" fill="none" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+                                <defs>
+                                    <linearGradient id="aboutLineGradient" x1="60" y1="40" x2="470" y2="420" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#FF4B32" stop-opacity=".7"/>
+                                        <stop offset="1" stop-color="#929DA7" stop-opacity=".5"/>
+                                    </linearGradient>
+                                    <radialGradient id="aboutNodeGradient">
+                                        <stop stop-color="#FF7A66"/>
+                                        <stop offset="1" stop-color="#929DA7"/>
+                                    </radialGradient>
+                                </defs>
+                                <g stroke="url(#aboutLineGradient)" stroke-width="1.1" opacity=".62">
+                                    <path d="M55 90 L190 150 L330 105 L465 165"/>
+                                    <path d="M55 90 L190 285 L330 105 L465 330"/>
+                                    <path d="M55 235 L190 150 L330 260 L465 165"/>
+                                    <path d="M55 235 L190 285 L330 260 L465 330"/>
+                                    <path d="M55 380 L190 285 L330 260 L465 330"/>
+                                    <path d="M190 150 L330 260 M330 105 L190 285"/>
+                                </g>
+                                <g fill="url(#aboutNodeGradient)">
+                                    <circle cx="55" cy="90" r="4"/><circle cx="55" cy="235" r="4"/><circle cx="55" cy="380" r="4"/>
+                                    <circle cx="190" cy="150" r="5"/><circle cx="190" cy="285" r="5"/>
+                                    <circle cx="330" cy="105" r="5"/><circle cx="330" cy="260" r="5"/>
+                                    <circle cx="465" cy="165" r="4"/><circle cx="465" cy="330" r="4"/>
+                                </g>
+                            </svg>
+
+                            <div class="code-panel">
+                                <div class="code-panel-header">
+                                    <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+                                    <span>repository_analysis.js</span>
+                                    <span class="window-badge"><i class="bi bi-broadcast" aria-hidden="true"></i> LIVE SCAN</span>
+                                </div>
+
+                                <div class="code-panel-body">
+                                    <div><span class="ln">01</span><span class="tok-accent">const</span> repository = {</div>
+                                    <div><span class="ln">02</span>&nbsp;&nbsp;owner: <span class="tok-green">'codeorigin'</span>,</div>
+                                    <div><span class="ln">03</span>&nbsp;&nbsp;scope: <span class="tok-steel">'repository-level'</span>,</div>
+                                    <div><span class="ln">04</span>&nbsp;&nbsp;features: [<span class="tok-green">'lexical'</span>, <span class="tok-green">'syntactic'</span>],</div>
+                                    <div><span class="ln">05</span>&nbsp;&nbsp;analysis: <span class="tok-accent">multiModal</span></div>
+                                    <div><span class="ln">06</span>};</div>
+                                    <div class="code-gap"></div>
+                                    <div><span class="ln">07</span><span class="tok-muted">// examine code characteristics</span></div>
+                                    <div><span class="ln">08</span><span class="tok-steel">analyzeRepository</span>(repository);</div>
+                                </div>
+
+                                <div class="code-panel-footer">
+                                    <div class="signal-row">
+                                        <span class="signal-label">SOURCE FILES</span>
+                                        <span class="signal-bar"><i style="width:78%"></i></span>
+                                    </div>
+                                    <div class="signal-row">
+                                        <span class="signal-label">FEATURE SIGNALS</span>
+                                        <span class="signal-bar signal-bar-alt"><i style="width:62%"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="floating-tag tag-top">
+                                <i class="bi bi-diagram-3" aria-hidden="true"></i>
+                                Multi-Modal Intelligence
+                            </div>
+                            <div class="floating-tag tag-bottom">
+                                <i class="bi bi-git" aria-hidden="true"></i>
+                                Repository Analysis
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             ABOUT THE PROJECT
+        ========================================================== -->
+        <section class="about-section project-section" id="project">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="eyebrow">01 / ABOUT THE PROJECT</span>
+                    <h2>More Than Code. <span class="accent-text">Understanding Its Characteristics.</span></h2>
+                </div>
+
+                <div class="project-layout">
+                    <div class="project-copy reveal">
+                        <p>
+                            CodeOrigin AI investigates source code characteristics at the
+                            repository level rather than relying only on isolated code
+                            snippets. Software carries patterns across its files, folders
+                            and structure — and those patterns are best examined in context.
+                        </p>
+                        <p>
+                            The platform aims to examine patterns across source files and
+                            understand characteristics that may be associated with
+                            human-written and AI-generated code. It is built as a research
+                            platform: observations are presented to support comparison and
+                            understanding, not to establish authorship with certainty.
+                        </p>
+                        <p>
+                            A repository is more than a collection of files. Its folder
+                            structure, naming conventions, configuration choices, comment
+                            style and dependency patterns together form a profile of how a
+                            project was written and organized. CodeOrigin AI reads that
+                            profile at scale, then presents it in a readable, structured way.
+                        </p>
+                        <a href="#multimodal" class="text-link">
+                            Explore the analysis dimensions
+                            <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                    <aside class="project-card reveal">
+                        <div class="project-card-top">
+                            <span class="project-card-icon"><i class="bi bi-boxes" aria-hidden="true"></i></span>
+                            <span class="eyebrow">REPOSITORY CONTEXT</span>
+                        </div>
+                        <h3>One Repository. Many Signals.</h3>
+                        <p>
+                            Structure, organization and code style are examined together
+                            to produce a broader view of a codebase instead of a single
+                            score taken out of context.
+                        </p>
+                        <div class="project-card-metrics">
+                            <div>
+                                <i class="bi bi-file-earmark-code" aria-hidden="true"></i>
+                                <span>SOURCE FILES</span>
+                            </div>
+                            <div>
+                                <i class="bi bi-diagram-3" aria-hidden="true"></i>
+                                <span>STRUCTURE</span>
+                            </div>
+                            <div>
+                                <i class="bi bi-palette" aria-hidden="true"></i>
+                                <span>STYLE</span>
+                            </div>
+                            <div>
+                                <i class="bi bi-search" aria-hidden="true"></i>
+                                <span>SEMANTICS</span>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             PLATFORM CAPABILITIES (NEW)
+        ========================================================== -->
+        <section class="about-section capabilities-section" id="capabilities">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="eyebrow">02 / PLATFORM CAPABILITIES</span>
+                    <h2>What the Platform <span class="accent-text">Actually Does.</span></h2>
+                    <p>From a submitted URL to an explorable analysis record — every step is built into the application.</p>
+                </div>
+
+                <div class="row g-4 capability-grid">
+                    <div class="col-md-6 col-lg-4 reveal">
+                        <article class="premium-card capability-card">
+                            <span class="card-icon"><i class="bi bi-link-45deg" aria-hidden="true"></i></span>
+                            <h3>Repository Input</h3>
+                            <p>Accepts public GitHub repository URLs with strict validation and ownership-scoped analysis records.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-4 reveal">
+                        <article class="premium-card capability-card">
+                            <span class="card-icon"><i class="bi bi-download" aria-hidden="true"></i></span>
+                            <h3>Safe Source Retrieval</h3>
+                            <p>Downloads repository archives with size, timeout and path-safety limits, then cleans up temporary files.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-4 reveal">
+                        <article class="premium-card capability-card">
+                            <span class="card-icon"><i class="bi bi-folder2-open" aria-hidden="true"></i></span>
+                            <h3>Recursive File Scanning</h3>
+                            <p>Walks the entire tree, skipping generated directories and counting files, folders and lines.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-4 reveal">
+                        <article class="premium-card capability-card">
+                            <span class="card-icon"><i class="bi bi-code-slash" aria-hidden="true"></i></span>
+                            <h3>Language Detection</h3>
+                            <p>Recognizes dozens of source extensions and reports language-wise file counts and distribution.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-4 reveal">
+                        <article class="premium-card capability-card">
+                            <span class="card-icon"><i class="bi bi-file-earmark-code" aria-hidden="true"></i></span>
+                            <h3>Source Code Viewer</h3>
+                            <p>Expandable file explorer with stored source content, line numbers, file size and path details.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-4 reveal">
+                        <article class="premium-card capability-card">
+                            <span class="card-icon"><i class="bi bi-person-lock" aria-hidden="true"></i></span>
+                            <h3>Private Analysis Records</h3>
+                            <p>Each analysis is tied to the signed-in user; only that user can open or read its stored files.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             PROJECT OBJECTIVES
+        ========================================================== -->
+        <section class="about-section objectives-section" id="objectives">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="eyebrow">03 / PROJECT OBJECTIVES</span>
+                    <h2>Four Goals. <span class="accent-text">One Research Direction.</span></h2>
+                    <p>Clear objectives that keep the analysis structured, comparative and responsible.</p>
+                </div>
+
+                <div class="row g-4 objective-grid">
+                    <div class="col-md-6 col-xl-3 reveal">
+                        <article class="premium-card objective-card">
+                            <div class="card-icon"><i class="bi bi-file-earmark-code" aria-hidden="true"></i></div>
+                            <span class="card-number">01</span>
+                            <h3>Source Code Analysis</h3>
+                            <p>Examine source files and repository structure. Understand code organization, size and characteristics across the whole project.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-xl-3 reveal">
+                        <article class="premium-card objective-card">
+                            <div class="card-icon"><i class="bi bi-shield-check" aria-hidden="true"></i></div>
+                            <span class="card-number">02</span>
+                            <h3>AI-Generated Code Detection</h3>
+                            <p>Investigate patterns associated with AI-generated code. Support comparative analysis without claiming definitive authorship.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-xl-3 reveal">
+                        <article class="premium-card objective-card">
+                            <div class="card-icon"><i class="bi bi-layers" aria-hidden="true"></i></div>
+                            <span class="card-number">03</span>
+                            <h3>Multi-Modal Feature Analysis</h3>
+                            <p>Combine lexical, syntactic, stylistic and semantic characteristics into a single analytical view of a codebase.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-xl-3 reveal">
+                        <article class="premium-card objective-card">
+                            <div class="card-icon"><i class="bi bi-chat-square-quote" aria-hidden="true"></i></div>
+                            <span class="card-number">04</span>
+                            <h3>Explainable Results</h3>
+                            <p>Present understandable observations and analysis results. Avoid unsupported confidence or accuracy claims.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             HOW IT WORKS
+        ========================================================== -->
+        <section class="about-section workflow-section" id="how-it-works">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="eyebrow">04 / HOW IT WORKS</span>
+                    <h2>From Repository to <span class="accent-text">Research Insights.</span></h2>
+                    <p>A clear path from a submitted repository URL to structured, readable analysis output.</p>
+                </div>
+
+                <ol class="workflow reveal">
+                    <li class="workflow-step">
+                        <span class="step-number">01</span>
+                        <span class="step-icon"><i class="bi bi-link-45deg" aria-hidden="true"></i></span>
+                        <div class="step-copy">
+                            <h3>Repository Input</h3>
+                            <p>Submit a public GitHub repository URL on the Analyze page.</p>
+                        </div>
+                    </li>
+                    <li class="workflow-step">
+                        <span class="step-number">02</span>
+                        <span class="step-icon"><i class="bi bi-download" aria-hidden="true"></i></span>
+                        <div class="step-copy">
+                            <h3>Source Code Extraction</h3>
+                            <p>Retrieve the archive and organize the supported source files.</p>
+                        </div>
+                    </li>
+                    <li class="workflow-step">
+                        <span class="step-number">03</span>
+                        <span class="step-icon"><i class="bi bi-fingerprint" aria-hidden="true"></i></span>
+                        <div class="step-copy">
+                            <h3>Feature Extraction</h3>
+                            <p>Observe lexical, syntactic, stylistic and semantic signals.</p>
+                        </div>
+                    </li>
+                    <li class="workflow-step">
+                        <span class="step-number">04</span>
+                        <span class="step-icon"><i class="bi bi-cpu" aria-hidden="true"></i></span>
+                        <div class="step-copy">
+                            <h3>Machine Learning Analysis</h3>
+                            <p>Investigate the extracted feature patterns and relationships.</p>
+                        </div>
+                    </li>
+                    <li class="workflow-step">
+                        <span class="step-number">05</span>
+                        <span class="step-icon"><i class="bi bi-file-bar-graph" aria-hidden="true"></i></span>
+                        <div class="step-copy">
+                            <h3>Repository-Level Report</h3>
+                            <p>Review statistics, structure and analysis findings in one place.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             MULTI-MODAL ANALYSIS
+        ========================================================== -->
+        <section class="about-section multimodal-section" id="multimodal">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="eyebrow">05 / MULTI-MODAL ANALYSIS</span>
+                    <h2>Four Perspectives. <span class="accent-text">One Deeper Analysis.</span></h2>
+                    <p>Complementary feature dimensions examined together across the repository.</p>
+                </div>
+
+                <div class="row g-4 modality-grid">
+                    <div class="col-md-6 reveal">
+                        <article class="premium-card modality-card">
+                            <div class="modality-icon"><i class="bi bi-hash" aria-hidden="true"></i></div>
+                            <div class="modality-copy">
+                                <span class="card-number">01</span>
+                                <h3>Lexical Features</h3>
+                                <p>Analyze tokens, keywords, identifiers, comments and vocabulary patterns that appear throughout the source files.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 reveal">
+                        <article class="premium-card modality-card">
+                            <div class="modality-icon"><i class="bi bi-diagram-3" aria-hidden="true"></i></div>
+                            <div class="modality-copy">
+                                <span class="card-number">02</span>
+                                <h3>Syntactic Features</h3>
+                                <p>Examine structural characteristics such as functions, loops, expressions, nesting and overall code organization.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 reveal">
+                        <article class="premium-card modality-card">
+                            <div class="modality-icon"><i class="bi bi-palette" aria-hidden="true"></i></div>
+                            <div class="modality-copy">
+                                <span class="card-number">03</span>
+                                <h3>Stylistic Features</h3>
+                                <p>Investigate naming conventions, indentation, formatting and coding-style patterns across files.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 reveal">
+                        <article class="premium-card modality-card">
+                            <div class="modality-icon"><i class="bi bi-boxes" aria-hidden="true"></i></div>
+                            <div class="modality-copy">
+                                <span class="card-number">04</span>
+                                <h3>Semantic Features</h3>
+                                <p>Explore contextual meaning, relationships and representations of source code inside the project.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             APPROACH COMPARISON (NEW)
+        ========================================================== -->
+        <section class="about-section comparison-section" id="approach">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="eyebrow">06 / OUR APPROACH</span>
+                    <h2>Beyond the <span class="accent-text">Single Snippet.</span></h2>
+                    <p>Why repository-level context matters for source code analysis.</p>
+                </div>
+
+                <div class="row g-4 align-items-stretch">
+                    <div class="col-lg-6 reveal">
+                        <article class="compare-card compare-old">
+                            <span class="compare-label"><i class="bi bi-file-code" aria-hidden="true"></i> SNIPPET-LEVEL VIEW</span>
+                            <h3>A single file in isolation</h3>
+                            <ul>
+                                <li><i class="bi bi-dash-circle" aria-hidden="true"></i> Limited context around the code</li>
+                                <li><i class="bi bi-dash-circle" aria-hidden="true"></i> Style can vary from one file to another</li>
+                                <li><i class="bi bi-dash-circle" aria-hidden="true"></i> Structure and organization are invisible</li>
+                                <li><i class="bi bi-dash-circle" aria-hidden="true"></i> Hard to compare related files</li>
+                            </ul>
+                        </article>
+                    </div>
+                    <div class="col-lg-6 reveal">
+                        <article class="compare-card compare-new">
+                            <span class="compare-label"><i class="bi bi-folder2-open" aria-hidden="true"></i> REPOSITORY-LEVEL VIEW</span>
+                            <h3>The complete project context</h3>
+                            <ul>
+                                <li><i class="bi bi-check-circle" aria-hidden="true"></i> Multiple files examined together</li>
+                                <li><i class="bi bi-check-circle" aria-hidden="true"></i> Folder structure and organization included</li>
+                                <li><i class="bi bi-check-circle" aria-hidden="true"></i> Patterns compared across the codebase</li>
+                                <li><i class="bi bi-check-circle" aria-hidden="true"></i> Findings presented with supporting detail</li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             TECHNOLOGY STACK
+        ========================================================== -->
+        <section class="about-section technology-section" id="technology">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="eyebrow">07 / TECHNOLOGY STACK</span>
+                    <h2>Built With <span class="accent-text">Modern Technologies.</span></h2>
+                    <p>Technologies actually used by the CodeOrigin AI application.</p>
+                </div>
+
+                <div class="row g-3 tech-grid">
+                    <div class="col-6 col-md-4 col-lg-3 reveal"><div class="tech-card"><span class="tech-mark">JS</span><div><h3>Node.js</h3><p>Server runtime</p></div></div></div>
+                    <div class="col-6 col-md-4 col-lg-3 reveal"><div class="tech-card"><span class="tech-mark">EX</span><div><h3>Express 5</h3><p>Web framework</p></div></div></div>
+                    <div class="col-6 col-md-4 col-lg-3 reveal"><div class="tech-card"><span class="tech-mark">EJS</span><div><h3>EJS</h3><p>Template rendering</p></div></div></div>
+                    <div class="col-6 col-md-4 col-lg-3 reveal"><div class="tech-card"><span class="tech-mark">DB</span><div><h3>MongoDB</h3><p>Data storage</p></div></div></div>
+                    <div class="col-6 col-md-4 col-lg-3 reveal"><div class="tech-card"><span class="tech-mark">MG</span><div><h3>Mongoose</h3><p>Data modelling</p></div></div></div>
+                    <div class="col-6 col-md-4 col-lg-3 reveal"><div class="tech-card"><span class="tech-mark"><i class="bi bi-person-lock" aria-hidden="true"></i></span><div><h3>express-session</h3><p>Session authentication</p></div></div></div>
+                    <div class="col-6 col-md-4 col-lg-3 reveal"><div class="tech-card"><span class="tech-mark"><i class="bi bi-shield-lock" aria-hidden="true"></i></span><div><h3>bcryptjs</h3><p>Password hashing</p></div></div></div>
+                    <div class="col-6 col-md-4 col-lg-3 reveal"><div class="tech-card"><span class="tech-mark">ZIP</span><div><h3>adm-zip</h3><p>Repository extraction</p></div></div></div>
+                    <div class="col-6 col-md-4 col-lg-3 reveal"><div class="tech-card"><span class="tech-mark"><i class="bi bi-bootstrap" aria-hidden="true"></i></span><div><h3>Bootstrap 5</h3><p>UI framework</p></div></div></div>
+                    <div class="col-6 col-md-4 col-lg-3 reveal"><div class="tech-card"><span class="tech-mark"><i class="bi bi-grid" aria-hidden="true"></i></span><div><h3>Bootstrap Icons</h3><p>Icon system</p></div></div></div>
+                    <div class="col-6 col-md-4 col-lg-3 reveal"><div class="tech-card"><span class="tech-mark"><i class="bi bi-bar-chart" aria-hidden="true"></i></span><div><h3>Chart.js</h3><p>Data visualization</p></div></div></div>
+                    <div class="col-6 col-md-4 col-lg-3 reveal"><div class="tech-card"><span class="tech-mark">.env</span><div><h3>dotenv</h3><p>Configuration</p></div></div></div>
+                </div>
+
+                <p class="tech-note reveal">
+                    <i class="bi bi-info-circle" aria-hidden="true"></i>
+                    This stack reflects the frameworks, libraries and tools present in the project source.
+                </p>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             RESEARCH AND INNOVATION
+        ========================================================== -->
+        <section class="about-section research-section" id="research">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="eyebrow">08 / RESEARCH &amp; INNOVATION</span>
+                    <h2>Exploring Code Authorship Through <span class="accent-text">Multiple Signals.</span></h2>
+                    <p>The research questions behind the platform and the principles that guide its design.</p>
+                </div>
+
+                <div class="row g-4 research-grid">
+                    <div class="col-md-6 reveal">
+                        <article class="research-card">
+                            <span class="research-icon"><i class="bi bi-lightbulb" aria-hidden="true"></i></span>
+                            <h3>Motivation</h3>
+                            <p>Understanding the growing presence of AI-assisted programming and the need to study source code characteristics. As AI tools become part of everyday development, examining how code is written becomes an increasingly relevant research question.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-6 reveal">
+                        <article class="research-card">
+                            <span class="research-icon"><i class="bi bi-folder2-open" aria-hidden="true"></i></span>
+                            <h3>Repository-Level Approach</h3>
+                            <p>Examining multiple source files and repository structure instead of depending exclusively on individual snippets. A project's organization carries signals that a single file cannot provide.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-6 reveal">
+                        <article class="research-card">
+                            <span class="research-icon"><i class="bi bi-layers" aria-hidden="true"></i></span>
+                            <h3>Multi-Modal Feature Fusion</h3>
+                            <p>Investigating lexical, syntactic, stylistic and semantic information together. Each dimension describes a different aspect of code, and together they form a more complete picture.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-6 reveal">
+                        <article class="research-card">
+                            <span class="research-icon"><i class="bi bi-eye" aria-hidden="true"></i></span>
+                            <h3>Explainability</h3>
+                            <p>Presenting meaningful observations so users can better understand the analysis. Findings are shown alongside the repository data that produced them, rather than as an unexplained verdict.</p>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="research-statement reveal">
+                    <div class="statement-mark" aria-hidden="true"><i class="bi bi-quote"></i></div>
+                    <div>
+                        <p>
+                            CodeOrigin AI is designed as an analytical research platform.
+                            Its output provides indications based on observed code
+                            characteristics — it is not definitive proof of code authorship.
+                            No accuracy, F1-score or benchmark result is claimed here.
+                        </p>
+                        <span>RESEARCH PRINCIPLE · ANALYTICAL INDICATIONS, NOT CERTAINTY</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             DESIGN PRINCIPLES (NEW)
+        ========================================================== -->
+        <section class="about-section principles-section" id="principles">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="eyebrow">09 / DESIGN PRINCIPLES</span>
+                    <h2>Built to Be <span class="accent-text">Readable and Responsible.</span></h2>
+                    <p>Engineering choices that shape how the platform handles repositories and results.</p>
+                </div>
+
+                <div class="row g-4 principle-grid">
+                    <div class="col-md-6 reveal">
+                        <article class="principle-item">
+                            <span class="principle-icon"><i class="bi bi-shield-exclamation" aria-hidden="true"></i></span>
+                            <div>
+                                <h3>Safe by default</h3>
+                                <p>Repository downloads are size-limited and timed out; archive extraction rejects unsafe paths and temporary files are removed after scanning.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 reveal">
+                        <article class="principle-item">
+                            <span class="principle-icon"><i class="bi bi-person-lock" aria-hidden="true"></i></span>
+                            <div>
+                                <h3>User-owned records</h3>
+                                <p>Every analysis belongs to the signed-in user who created it and cannot be opened by another account.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 reveal">
+                        <article class="principle-item">
+                            <span class="principle-icon"><i class="bi bi-window" aria-hidden="true"></i></span>
+                            <div>
+                                <h3>Readable output</h3>
+                                <p>Statistics, language charts and a file explorer turn raw repository data into something a person can inspect.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 reveal">
+                        <article class="principle-item">
+                            <span class="principle-icon"><i class="bi bi-phone" aria-hidden="true"></i></span>
+                            <div>
+                                <h3>Accessible everywhere</h3>
+                                <p>Responsive layouts keep the analysis readable on desktop, tablet and mobile screens.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             PROJECT TEAM
+        ========================================================== -->
+        <section class="about-section team-section" id="developer">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="eyebrow">10 / PROJECT TEAM</span>
+                    <h2>The Minds Behind <span class="accent-text">CodeOrigin AI.</span></h2>
+                    <p>Four students from JD College of Engineering and Management, Nagpur, working across development, data and research.</p>
+                </div>
+
+                <div class="row g-4 team-grid">
+                    <div class="col-md-6 col-lg-3 reveal">
+                        <article class="team-card">
+                            <div class="team-avatar">KP</div>
+                            <span class="team-role">PROJECT LEAD · FULL-STACK DEVELOPER</span>
+                            <h3>Khushal Paunkar</h3>
+                            <p>B.Tech Computer Science and Engineering<br>JD College of Engineering and Management, Nagpur</p>
+                            <div class="team-links">
+                                <a href="https://github.com/Khushalpaunkar" target="_blank" rel="noopener noreferrer" aria-label="Khushal on GitHub"><i class="bi bi-github" aria-hidden="true"></i></a>
+                                <a href="https://www.linkedin.com/in/khushalpaunkar/" target="_blank" rel="noopener noreferrer" aria-label="Khushal on LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-3 reveal">
+                        <article class="team-card">
+                            <div class="team-avatar">S</div>
+                            <span class="team-role">BACKEND &amp; DATA INFRASTRUCTURE</span>
+                            <h3>Saksham</h3>
+                            <p>JD College of Engineering and Management, Nagpur</p>
+                            <div class="team-links"><span><i class="bi bi-database" aria-hidden="true"></i> Data systems</span></div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-3 reveal">
+                        <article class="team-card">
+                            <div class="team-avatar">N</div>
+                            <span class="team-role">MACHINE LEARNING &amp; RESEARCH</span>
+                            <h3>Nayan</h3>
+                            <p>JD College of Engineering and Management, Nagpur</p>
+                            <div class="team-links"><span><i class="bi bi-cpu" aria-hidden="true"></i> Feature modeling</span></div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-3 reveal">
+                        <article class="team-card">
+                            <div class="team-avatar">C</div>
+                            <span class="team-role">FRONTEND &amp; UI/UX DESIGN</span>
+                            <h3>Chaitanya</h3>
+                            <p>JD College of Engineering and Management, Nagpur</p>
+                            <div class="team-links"><span><i class="bi bi-palette" aria-hidden="true"></i> Interface design</span></div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="team-note reveal">
+                    <i class="bi bi-mortarboard" aria-hidden="true"></i>
+                    All four developers are from JD College of Engineering and Management, Nagpur.
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             FINAL CTA
+        ========================================================== -->
+        <section class="about-cta" id="get-started">
+            <div class="cta-glow" aria-hidden="true"></div>
+            <div class="container reveal">
+                <span class="eyebrow">START EXPLORING</span>
+                <h2>Ready to Explore Your Code?</h2>
+                <p>Bring your repository into CodeOrigin AI and explore the characteristics behind its source code.</p>
+                <a href="/analyze" class="btn-hero btn-hero-primary btn-cta">
+                    <i class="bi bi-cpu" aria-hidden="true"></i>
+                    Start Analyzing
+                    <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <%- include('layouts/footer') %>
+
+    <script>
+        (function () {
+            'use strict';
+
+            var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            if (!reduceMotion) {
+                document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+                    link.addEventListener('click', function (event) {
+                        var target = document.querySelector(link.getAttribute('href'));
+                        if (!target) return;
+                        event.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    });
+                });
+            }
+
+            var items = document.querySelectorAll('.reveal');
+            if (!reduceMotion && 'IntersectionObserver' in window) {
+                document.body.classList.add('has-reveal');
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('in-view');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+                items.forEach(function (item) { observer.observe(item); });
+            } else {
+                items.forEach(function (item) { item.classList.add('in-view'); });
+            }
+        })();
+    </script>
+
+</body>
+</html>

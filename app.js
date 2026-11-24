@@ -5,8 +5,9 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const connectDB = require('./config/db');
+const { connectDB } = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
+const analysisRoutes = require('./routes/analysisRoutes');
 const { requireAuth } = require('./middleware/authMiddleware');
 
 const app = express();
@@ -67,6 +68,7 @@ app.get('/', (req, res) => {
 // =========================================================
 
 app.use('/auth', authRoutes);
+app.use('/', analysisRoutes);
 
 // =========================================================
 // PROTECTED ROUTES
@@ -88,16 +90,30 @@ app.get('/report', requireAuth, (req, res) => {
     res.render('reports/report');
 });
 
+app.get('/about' , (req , res) => {
+   res.render('about');
+});
+
 // =========================================================
 // START SERVER
 // =========================================================
 
-connectDB().then((databaseConnected) => {
+const startServer = async () => {
+    const databaseConnected = await connectDB();
+
+    if (!databaseConnected) {
+        console.warn(
+            'Starting the web server without MongoDB; database-backed auth actions will be temporarily unavailable.'
+        );
+    }
+
     app.listen(port, () => {
         console.log(`CodeOrigin AI listening on port ${port}`);
         console.log(` → http://localhost:${port}`);
-        if (!databaseConnected) {
-            console.warn('Running with MongoDB disconnected. Database-backed auth actions will not work until the URI is fixed.');
-        }
     });
+};
+
+startServer().catch((error) => {
+    console.error('CodeOrigin AI failed to start:', error.message);
+    process.exitCode = 1;
 });

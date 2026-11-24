@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const { isDatabaseConnected } = require('../config/db');
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const USERNAME_REGEX = /^[a-zA-Z0-9_]{3,20}$/;
@@ -7,9 +8,9 @@ const setFlash = (req, type, message) => {
     req.session.flash = { type, message };
 };
 
-const renderLogin = (req, res, errors, form, flash) => {
+const renderLogin = (req, res, errors, form, flash, statusCode) => {
     if (flash) res.locals.flashMsg = flash;
-    res.status(errors ? 422 : 200).render('auth/login', {
+    res.status(statusCode || (errors ? 422 : 200)).render('auth/login', {
         pageTitle: 'Sign In | CodeOrigin AI',
         errors: errors || {},
         form: form || {},
@@ -17,9 +18,9 @@ const renderLogin = (req, res, errors, form, flash) => {
     });
 };
 
-const renderRegister = (req, res, errors, form, flash) => {
+const renderRegister = (req, res, errors, form, flash, statusCode) => {
     if (flash) res.locals.flashMsg = flash;
-    res.status(errors ? 422 : 200).render('auth/register', {
+    res.status(statusCode || (errors ? 422 : 200)).render('auth/register', {
         pageTitle: 'Create Account | CodeOrigin AI',
         errors: errors || {},
         form: form || {},
@@ -85,6 +86,17 @@ exports.postRegister = async (req, res) => {
         return renderRegister(req, res, errors, form);
     }
 
+    if (!isDatabaseConnected()) {
+        return renderRegister(
+            req,
+            res,
+            null,
+            form,
+            { type: 'error', message: 'Account creation is temporarily unavailable. Please try again later.' },
+            503
+        );
+    }
+
     try {
         const existingEmail = await User.findOne({ email: form.email });
         if (existingEmail) {
@@ -113,6 +125,17 @@ exports.postRegister = async (req, res) => {
         setFlash(req, 'success', 'Account created successfully. Welcome to CodeOrigin AI!');
         return res.redirect('/dashboard');
     } catch (error) {
+        if (!isDatabaseConnected()) {
+            return renderRegister(
+                req,
+                res,
+                null,
+                form,
+                { type: 'error', message: 'Account creation is temporarily unavailable. Please try again later.' },
+                503
+            );
+        }
+
         if (error && error.code === 11000) {
             const key = error.keyPattern && error.keyPattern.email
                 ? 'email'
@@ -147,6 +170,17 @@ exports.postLogin = async (req, res) => {
         return res.redirect('/auth/login');
     }
 
+    if (!isDatabaseConnected()) {
+        return renderLogin(
+            req,
+            res,
+            null,
+            form,
+            { type: 'error', message: 'Login is temporarily unavailable. Please try again later.' },
+            503
+        );
+    }
+
     try {
         const isEmail = identifier.includes('@');
         const query = isEmail
@@ -178,6 +212,17 @@ exports.postLogin = async (req, res) => {
         setFlash(req, 'success', `Welcome back, ${user.name.split(' ')[0]}!`);
         return res.redirect(safeNext ? nextUrl : '/dashboard');
     } catch (error) {
+        if (!isDatabaseConnected()) {
+            return renderLogin(
+                req,
+                res,
+                null,
+                form,
+                { type: 'error', message: 'Login is temporarily unavailable. Please try again later.' },
+                503
+            );
+        }
+
         console.error('Login error:', error.message);
         setFlash(req, 'error', 'Something went wrong. Please try again.');
         return res.redirect('/auth/login');
@@ -188,9 +233,9 @@ exports.postLogout = (req, res) => {
     req.session.destroy((error) => {
         if (error) {
             console.error('Logout error:', error.message);
-            return res.redirect('/dashboard');
+            return res.redirect('/');
         }
         res.clearCookie('connect.sid');
-        return res.redirect('/auth/login?logged_out=1');
+        return res.redirect('/');
     });
 };
